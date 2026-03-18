@@ -57,8 +57,10 @@ a:hover { text-decoration: underline; }
 }
 .brand-title { font-weight: 800; letter-spacing: -0.03em; font-size: 18px; }
 .brand-sub { font-size: 13px; color: var(--muted); }
-.nav { display: flex; gap: 10px; flex-wrap: wrap; }
+.nav { display: flex; gap: 10px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
 .nav a {
+  white-space: nowrap;
   padding: 8px 12px; border: 1px solid transparent; border-radius: 12px; color: var(--muted);
 }
 .nav a:hover { text-decoration: none; border-color: var(--line); background: var(--panel-soft); color: var(--text); }
@@ -128,9 +130,17 @@ a:hover { text-decoration: underline; }
   .hero-grid, .split, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .wrap { padding: 18px 14px 56px; }
-  .topbar, .section, .hero { padding: 18px; }
-  .hero p { font-size: 16px; }
+  .wrap { padding: 16px 12px 48px; }
+  .topbar { padding: 12px 14px; }
+  .section, .hero { padding: 18px; }
+  .brand-sub, .nav { display: none; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 12px; }
+  .brand-title { font-size: 17px; }
+  .hero { padding: 22px; }
+  .hero h1 { font-size: clamp(30px, 10vw, 40px); }
+  .hero p { font-size: 15px; }
+  .hero-actions { flex-direction: column; }
+  .button { width: 100%; }
 }
 </style>
 </head>
@@ -138,7 +148,7 @@ a:hover { text-decoration: underline; }
   <div class="wrap">
     
     <header class="topbar">
-      <a class="brand" href="/">
+      <a class="brand" href="/promptbutton/">
         <span class="brand-mark">P</span>
         <span>
           <div class="brand-title">프롬버튼</div>
@@ -146,17 +156,17 @@ a:hover { text-decoration: underline; }
         </span>
       </a>
       <nav class="nav">
-        <a href="/category/work">업무/실무</a>
-        <a href="/category/career">취업/자소서</a>
-        <a href="/category/marketing">마케팅/콘텐츠</a>
-        <a href="/category/cs">고객응대</a>
-        <a href="/category/study">공부/학습</a>
-        <a href="/guide">작성법</a>
+        <a href="/promptbutton/category/work">업무/실무</a>
+        <a href="/promptbutton/category/career">취업/자소서</a>
+        <a href="/promptbutton/category/marketing">마케팅/콘텐츠</a>
+        <a href="/promptbutton/category/cs">고객응대</a>
+        <a href="/promptbutton/category/study">공부/학습</a>
+        <a href="/promptbutton/guide">작성법</a>
       </nav>
     </header>
     
     <section class="section">
-      <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/career">취업/자소서</a> / <span>면접 답변 프롬프트</span></div>
+      <div class="breadcrumbs"><a href="/promptbutton/">홈</a> / <a href="/promptbutton/category/career">취업/자소서</a> / <span>면접 답변 프롬프트</span></div>
       <div class="section-head"><div><div class="kicker">취업/자소서</div><h2>면접 답변 프롬프트</h2><p class="lead">예상질문 연습과 답변 구조화를 위한 템플릿</p></div></div>
       <div class="pill-wrap"><span class="pill">면접 답변 프롬프트</span><span class='pill'>question</span><span class='pill'>background</span></div>
     </section>
@@ -207,7 +217,7 @@ a:hover { text-decoration: underline; }
       <div class="grid grid-2">
     <article class="card">
       <div class="kicker">취업/자소서</div>
-      <h3><a href="/prompt/cover-letter-review-prompt">자소서 첨삭 프롬프트</a></h3>
+      <h3><a href="/promptbutton/prompt/cover-letter-review-prompt">자소서 첨삭 프롬프트</a></h3>
       <p class="muted">자기소개서를 더 자연스럽고 설득력 있게 다듬는 템플릿</p>
       <div class="pill-wrap">
         <span class="pill">자소서 첨삭 AI</span>
@@ -216,7 +226,7 @@ a:hover { text-decoration: underline; }
     
     <article class="card">
       <div class="kicker">업무/실무</div>
-      <h3><a href="/prompt/email-reply-prompt">메일 답장 프롬프트 모음</a></h3>
+      <h3><a href="/promptbutton/prompt/email-reply-prompt">메일 답장 프롬프트 모음</a></h3>
       <p class="muted">정중한 업무 메일을 빠르게 쓰는 템플릿</p>
       <div class="pill-wrap">
         <span class="pill">메일 답장 예시</span>
