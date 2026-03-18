@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mangoo-wq.github.io/promptbutton/sitemap.xml
+Sitemap: https://promptbutton.app/sitemap.xml
