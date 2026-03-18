@@ -164,20 +164,20 @@ a:hover { text-decoration: underline; }
     <section class="section">
       <div class="split">
         <div class="card">
-          <div class="kicker">이럴 때 쓰세요</div>
-          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
+          <div class="kicker">1층: 이 검색으로 들어왔다면</div>
+          <h3>고객문의 답변 예시</h3>
+          <p class="muted">고객문의 답변 예시를 찾는 사람은 보통 빠르게 답해야 하지만 말투 때문에 고객을 더 자극할까 걱정합니다. 이 페이지는 친절함과 명확함을 같이 잡는 프롬프트를 모았습니다.</p>
+          <div class="pill-wrap"><span class='pill'>고객문의 답변 예시</span><span class='pill'>cs 답변 프롬프트</span><span class='pill'>고객응대 ai</span></div>
         </div>
         <div class="card">
-          <div class="kicker">추천 도구</div>
-          <h3>이 프롬프트와 잘 맞는 AI</h3>
-          <div class="pill-wrap"><span class='pill'>ChatGPT</span><span class='pill'>Claude</span></div>
-          <p class="muted">무료/basic 모델로도 먼저 시도해볼 수 있게 구성합니다.</p>
+          <div class="kicker">이럴 때 쓰세요</div>
+          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">아래 문장을 그대로 붙여넣고 변수만 바꿔 쓰면 됩니다.</p></div></div>
+      <div class="section-head"><div><h2>2층: 바로 복붙하는 프롬프트</h2><p class="lead">검색으로 들어온 사람이 바로 써볼 수 있도록 기본/짧은/정중한 버전을 함께 둡니다.</p></div></div>
       <div class="card"><div class="kicker">기본 버전</div><div class="prompt-box">아래 고객 문의에 답변해줘. 말투는 친절하고 차분하게, 책임 회피처럼 보이지 않게 써줘. 필요한 안내는 분명하게 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div></div>
       <div class="grid grid-2" style="margin-top:16px;">
         <div class="card"><div class="kicker">짧은 버전</div><div class="prompt-box">아래 고객 문의에 짧고 친절하게 답변해줘. 문의: {{customer_message}} 상황: {{context}}</div></div>
@@ -191,6 +191,16 @@ a:hover { text-decoration: underline; }
         <div class="card"><div class="kicker">예시 입력</div><div class="prompt-box">상품이 아직 안 왔는데 언제 오나요? 주문한 지 4일 됐어요.</div></div>
         <div class="card"><div class="kicker">예시 출력</div><div class="prompt-box">안녕하세요 고객님. 배송이 늦어져 불편을 드려 죄송합니다. 현재 주문하신 상품은 물류센터에서 출고 준비 중이며, 내일 중 송장 흐름이 확인될 예정입니다. 확인되는 대로 빠르게 안내드리겠습니다.</div></div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>3층: 이 프롬프트 다음엔 어떤 도구?</h2><p class="lead">도구 비교 페이지를 크게 열기 전까지는, 실제 사용 맥락 기준으로 먼저 추천합니다.</p></div></div>
+      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧은 답변 초안을 빠르게 만들고 상황별 변형을 주기 쉽습니다.</p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 공감 표현이 있는 응답 톤을 만들 때 좋습니다.</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
+      <ul class="list-clean"><li><strong>불만 고객 응대에도 쓸 수 있나요?</strong><br><span class='muted'>네. 사과 표현과 해결 안내를 같이 넣는 방향으로 충분히 쓸 수 있습니다.</span></li><li><strong>스마트스토어에도 맞나요?</strong><br><span class='muted'>맞습니다. 배송, 환불, 상품문의처럼 반복 응대에서 특히 체감이 큽니다.</span></li></ul>
     </section>
 
     <section class="section">

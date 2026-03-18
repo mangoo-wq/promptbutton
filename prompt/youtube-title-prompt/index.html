@@ -164,20 +164,20 @@ a:hover { text-decoration: underline; }
     <section class="section">
       <div class="split">
         <div class="card">
-          <div class="kicker">이럴 때 쓰세요</div>
-          <ul class="list-clean"><li>유튜브 업로드 전 제목이 막힐 때</li><li>같은 주제로 여러 제목을 비교하고 싶을 때</li><li>쇼츠/롱폼 제목을 각각 뽑고 싶을 때</li></ul>
+          <div class="kicker">1층: 이 검색으로 들어왔다면</div>
+          <h3>유튜브 제목 프롬프트</h3>
+          <p class="muted">유튜브 제목 프롬프트를 찾는 사람은 “클릭은 나와야 하지만 너무 낚시처럼 보이진 않아야 한다”는 고민이 큽니다. 이 페이지는 정보형과 호기심형을 나눠서 뽑아줍니다.</p>
+          <div class="pill-wrap"><span class='pill'>유튜브 제목 프롬프트</span><span class='pill'>유튜브 제목 예시</span><span class='pill'>클릭 잘 되는 제목 ai</span></div>
         </div>
         <div class="card">
-          <div class="kicker">추천 도구</div>
-          <h3>이 프롬프트와 잘 맞는 AI</h3>
-          <div class="pill-wrap"><span class='pill'>ChatGPT</span><span class='pill'>Claude</span></div>
-          <p class="muted">무료/basic 모델로도 먼저 시도해볼 수 있게 구성합니다.</p>
+          <div class="kicker">이럴 때 쓰세요</div>
+          <ul class="list-clean"><li>유튜브 업로드 전 제목이 막힐 때</li><li>같은 주제로 여러 제목을 비교하고 싶을 때</li><li>쇼츠/롱폼 제목을 각각 뽑고 싶을 때</li></ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">아래 문장을 그대로 붙여넣고 변수만 바꿔 쓰면 됩니다.</p></div></div>
+      <div class="section-head"><div><h2>2층: 바로 복붙하는 프롬프트</h2><p class="lead">검색으로 들어온 사람이 바로 써볼 수 있도록 기본/짧은/정중한 버전을 함께 둡니다.</p></div></div>
       <div class="card"><div class="kicker">기본 버전</div><div class="prompt-box">아래 영상 내용을 바탕으로 유튜브 제목 15개를 제안해줘. 클릭을 유도하되 과장 낚시는 피하고, 1) 정보형 2) 호기심형 3) 요약형으로 나눠줘. 영상 내용: {{video_summary}} 타겟 시청자: {{target}}</div></div>
       <div class="grid grid-2" style="margin-top:16px;">
         <div class="card"><div class="kicker">짧은 버전</div><div class="prompt-box">아래 영상 내용을 바탕으로 유튜브 제목 10개만 뽑아줘. 영상 내용: {{video_summary}}</div></div>
@@ -191,6 +191,16 @@ a:hover { text-decoration: underline; }
         <div class="card"><div class="kicker">예시 입력</div><div class="prompt-box">직장인을 위한 ChatGPT 회의록 활용법 영상</div></div>
         <div class="card"><div class="kicker">예시 출력</div><div class="prompt-box">직장인이 회의록 10분 안에 끝내는 법 / ChatGPT로 회의록 정리하면 달라지는 점 / 바쁜 팀장이 회의록 빨리 쓰는 방법</div></div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>3층: 이 프롬프트 다음엔 어떤 도구?</h2><p class="lead">도구 비교 페이지를 크게 열기 전까지는, 실제 사용 맥락 기준으로 먼저 추천합니다.</p></div></div>
+      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>제목을 많이 빠르게 뽑고 분류하는 데 좋습니다.</p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 자연스럽고 덜 기계적인 문장 톤에 도움이 됩니다.</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
+      <ul class="list-clean"><li><strong>쇼츠 제목에도 쓸 수 있나요?</strong><br><span class='muted'>네. 프롬프트에 쇼츠용이라고 명시하면 더 짧고 강한 제목으로 바꿀 수 있습니다.</span></li><li><strong>낚시 제목이 되지 않게 하려면요?</strong><br><span class='muted'>“과장 낚시는 피하고”라는 조건을 넣고, 실제 영상 내용 기반으로만 뽑게 하면 됩니다.</span></li></ul>
     </section>
 
     <section class="section">

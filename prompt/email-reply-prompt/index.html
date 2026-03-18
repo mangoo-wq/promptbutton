@@ -164,20 +164,20 @@ a:hover { text-decoration: underline; }
     <section class="section">
       <div class="split">
         <div class="card">
-          <div class="kicker">이럴 때 쓰세요</div>
-          <ul class="list-clean"><li>정중한 답장이 필요할 때</li><li>상사/고객 메일 답장을 써야 할 때</li><li>거절/보류 메일을 부드럽게 쓰고 싶을 때</li></ul>
+          <div class="kicker">1층: 이 검색으로 들어왔다면</div>
+          <h3>메일 답장 예시</h3>
+          <p class="muted">메일 답장 예시를 찾는 사람은 보통 “예의는 지키고 싶은데 문장이 안 떠오른다”는 상태입니다. 이 페이지는 정중한 답장을 빠르게 만드는 데 집중합니다.</p>
+          <div class="pill-wrap"><span class='pill'>메일 답장 예시</span><span class='pill'>업무 메일 답장 프롬프트</span><span class='pill'>정중한 메일 답장 ai</span></div>
         </div>
         <div class="card">
-          <div class="kicker">추천 도구</div>
-          <h3>이 프롬프트와 잘 맞는 AI</h3>
-          <div class="pill-wrap"><span class='pill'>ChatGPT</span><span class='pill'>Claude</span></div>
-          <p class="muted">무료/basic 모델로도 먼저 시도해볼 수 있게 구성합니다.</p>
+          <div class="kicker">이럴 때 쓰세요</div>
+          <ul class="list-clean"><li>정중한 답장이 필요할 때</li><li>상사/고객 메일 답장을 써야 할 때</li><li>거절/보류 메일을 부드럽게 쓰고 싶을 때</li></ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">아래 문장을 그대로 붙여넣고 변수만 바꿔 쓰면 됩니다.</p></div></div>
+      <div class="section-head"><div><h2>2층: 바로 복붙하는 프롬프트</h2><p class="lead">검색으로 들어온 사람이 바로 써볼 수 있도록 기본/짧은/정중한 버전을 함께 둡니다.</p></div></div>
       <div class="card"><div class="kicker">기본 버전</div><div class="prompt-box">아래 상황에 맞는 정중한 업무 메일 답장을 작성해줘. 톤은 예의 바르고 간결하게, 너무 딱딱하지 않게 써줘. 상황: {{situation}} 상대: {{recipient}} 원하는 핵심 메시지: {{message}}</div></div>
       <div class="grid grid-2" style="margin-top:16px;">
         <div class="card"><div class="kicker">짧은 버전</div><div class="prompt-box">아래 상황에 맞는 짧고 정중한 메일 답장을 써줘. 상황: {{situation}} 핵심 메시지: {{message}}</div></div>
@@ -191,6 +191,16 @@ a:hover { text-decoration: underline; }
         <div class="card"><div class="kicker">예시 입력</div><div class="prompt-box">상대가 일정 변경을 요청했고, 나는 금요일 오후 3시로 변경 가능하다고 답해야 한다.</div></div>
         <div class="card"><div class="kicker">예시 출력</div><div class="prompt-box">안녕하세요. 요청 주신 일정 변경 관련하여 확인드렸습니다. 금요일 오후 3시로 조정 가능합니다. 해당 일정으로 진행하겠습니다. 감사합니다.</div></div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>3층: 이 프롬프트 다음엔 어떤 도구?</h2><p class="lead">도구 비교 페이지를 크게 열기 전까지는, 실제 사용 맥락 기준으로 먼저 추천합니다.</p></div></div>
+      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧고 또렷한 업무 답장 초안을 가장 빨리 만들기 좋습니다.</p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 부드럽고 자연스러운 문장 다듬기에 강합니다.</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
+      <ul class="list-clean"><li><strong>너무 딱딱하지 않게도 되나요?</strong><br><span class='muted'>네. 프롬프트에 “딱딱하지 않게, 자연스럽게”를 넣으면 톤이 바로 달라집니다.</span></li><li><strong>거절 메일도 쓸 수 있나요?</strong><br><span class='muted'>가능합니다. 상황과 핵심 메시지에 거절/보류 사유만 넣으면 됩니다.</span></li></ul>
     </section>
 
     <section class="section">
