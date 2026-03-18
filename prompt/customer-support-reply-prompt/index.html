@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>고객문의 답변 프롬프트 | CS 답변 예시 모음 - 프롬버튼</title>
+  <meta name="description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel-soft: #f8faff;
+  --line: #e5e9f4;
+  --text: #0f172a;
+  --muted: #5f6b84;
+  --accent: #4f46e5;
+  --accent-2: #7c3aed;
+  --accent-soft: rgba(79,70,229,0.08);
+  --shadow: 0 20px 60px rgba(19, 31, 60, 0.08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(124,58,237,0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(79,70,229,0.10), transparent 24%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 28px 18px 72px; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+.brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; }
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  width: 38px; height: 38px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff; display: grid; place-items: center; font-weight: 800;
+  box-shadow: 0 16px 32px rgba(79,70,229,0.22);
+}
+.brand-title { font-weight: 800; letter-spacing: -0.03em; font-size: 18px; }
+.brand-sub { font-size: 13px; color: var(--muted); }
+.nav { display: flex; gap: 10px; flex-wrap: wrap; }
+.nav a {
+  padding: 8px 12px; border: 1px solid transparent; border-radius: 12px; color: var(--muted);
+}
+.nav a:hover { text-decoration: none; border-color: var(--line); background: var(--panel-soft); color: var(--text); }
+.hero {
+  padding: 34px; border-radius: 28px; border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(79,70,229,0.96), rgba(124,58,237,0.92));
+  color: #fff; box-shadow: var(--shadow); overflow: hidden; position: relative;
+}
+.hero::after {
+  content: ""; position: absolute; width: 260px; height: 260px; border-radius: 999px;
+  right: -70px; bottom: -90px; background: rgba(255,255,255,0.12);
+}
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.9fr); gap: 22px; position: relative; z-index: 1; }
+.eyebrow { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero h1 { margin: 14px 0 12px; font-size: clamp(38px, 5vw, 58px); line-height: 1.02; letter-spacing: -0.05em; }
+.hero p { margin: 0; font-size: 18px; max-width: 700px; color: rgba(255,255,255,0.92); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 16px; border-radius: 14px; font-weight: 800; text-decoration: none;
+}
+.button.primary { background: #fff; color: var(--accent); }
+.button.secondary { background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.stats { display: grid; gap: 12px; }
+.stat-card {
+  padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+}
+.stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; }
+.stat-value { margin-top: 8px; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+.stat-note { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,0.82); }
+.section {
+  margin-top: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--panel); box-shadow: var(--shadow);
+}
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 16px; }
+.section h2 { margin: 0; font-size: 28px; letter-spacing: -0.03em; }
+.lead { margin: 8px 0 0; color: var(--muted); }
+.grid { display: grid; gap: 16px; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card {
+  padding: 18px; border-radius: 20px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--panel), #fafbff);
+  box-shadow: 0 12px 30px rgba(19,31,60,0.04);
+}
+.card h3 { margin: 0 0 10px; font-size: 20px; letter-spacing: -0.03em; }
+.kicker { display: inline-block; margin-bottom: 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 800; }
+.muted { color: var(--muted); }
+.list-clean { list-style: none; padding: 0; margin: 0; }
+.list-clean li { padding: 12px 0; border-top: 1px solid var(--line); }
+.list-clean li:first-child { border-top: none; padding-top: 0; }
+.pill-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.pill {
+  display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700;
+}
+.prompt-box {
+  margin-top: 14px; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: #f9fbff; white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; line-height: 1.7;
+}
+.split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
+.table-like { display: grid; gap: 12px; }
+.row { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); }
+.row-title { font-weight: 700; margin-bottom: 6px; }
+.footer { margin-top: 26px; color: var(--muted); font-size: 14px; text-align: center; }
+.breadcrumbs { display: flex; gap: 8px; flex-wrap: wrap; font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+.breadcrumbs a { color: var(--muted); }
+@media (max-width: 960px) {
+  .hero-grid, .split, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 18px 14px 56px; }
+  .topbar, .section, .hero { padding: 18px; }
+  .hero p { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">P</span>
+        <span>
+          <div class="brand-title">프롬버튼</div>
+          <div class="brand-sub">직장인·취준생·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/category/work">업무/실무</a>
+        <a href="/category/career">취업/자소서</a>
+        <a href="/category/marketing">마케팅/콘텐츠</a>
+        <a href="/category/cs">고객응대</a>
+        <a href="/category/study">공부/학습</a>
+        <a href="/guide">작성법</a>
+      </nav>
+    </header>
+    
+    <section class="section">
+      <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/cs">고객응대/쇼핑몰</a> / <span>고객문의 답변 프롬프트</span></div>
+      <div class="section-head"><div><div class="kicker">고객응대/쇼핑몰</div><h2>고객문의 답변 프롬프트</h2><p class="lead">CS 답변을 빠르고 부드럽게 쓰는 템플릿</p></div></div>
+      <div class="pill-wrap"><span class="pill">고객문의 답변 예시</span><span class='pill'>customer_message</span><span class='pill'>context</span></div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="card">
+          <div class="kicker">이럴 때 쓰세요</div>
+          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
+        </div>
+        <div class="card">
+          <div class="kicker">추천 도구</div>
+          <h3>이 프롬프트와 잘 맞는 AI</h3>
+          <div class="pill-wrap"><span class='pill'>ChatGPT</span><span class='pill'>Claude</span></div>
+          <p class="muted">무료/basic 모델로도 먼저 시도해볼 수 있게 구성합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">아래 문장을 그대로 붙여넣고 변수만 바꿔 쓰면 됩니다.</p></div></div>
+      <div class="card"><div class="kicker">기본 버전</div><div class="prompt-box">아래 고객 문의에 답변해줘. 말투는 친절하고 차분하게, 책임 회피처럼 보이지 않게 써줘. 필요한 안내는 분명하게 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div></div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card"><div class="kicker">짧은 버전</div><div class="prompt-box">아래 고객 문의에 짧고 친절하게 답변해줘. 문의: {{customer_message}} 상황: {{context}}</div></div>
+        <div class="card"><div class="kicker">정중한 버전</div><div class="prompt-box">아래 고객 문의에 매우 친절하고 신뢰감 있게 답변해줘. 불편을 줄 수 있는 상황이면 사과 표현도 자연스럽게 포함해줘. 문의: {{customer_message}} 상황: {{context}}</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>예시 입력 / 출력</h2><p class="lead">어떻게 넣고 어떤 결과를 기대하면 되는지 한 번에 보이게 구성했습니다.</p></div></div>
+      <div class="grid grid-2">
+        <div class="card"><div class="kicker">예시 입력</div><div class="prompt-box">상품이 아직 안 왔는데 언제 오나요? 주문한 지 4일 됐어요.</div></div>
+        <div class="card"><div class="kicker">예시 출력</div><div class="prompt-box">안녕하세요 고객님. 배송이 늦어져 불편을 드려 죄송합니다. 현재 주문하신 상품은 물류센터에서 출고 준비 중이며, 내일 중 송장 흐름이 확인될 예정입니다. 확인되는 대로 빠르게 안내드리겠습니다.</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>관련 프롬프트</h2><p class="lead">같이 보면 좋은 템플릿을 이어서 연결합니다.</p></div></div>
+      <div class="grid grid-2">
+    <article class="card">
+      <div class="kicker">고객응대/쇼핑몰</div>
+      <h3><a href="/prompt/refund-notice-prompt">환불 안내 프롬프트</a></h3>
+      <p class="muted">부드럽고 깔끔한 환불 안내 문구 템플릿</p>
+      <div class="pill-wrap">
+        <span class="pill">환불 안내 예시</span>
+      </div>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">마케팅/콘텐츠</div>
+      <h3><a href="/prompt/product-detail-copy-prompt">상품 상세페이지 문구 프롬프트</a></h3>
+      <p class="muted">판매 문장을 빠르게 뽑는 템플릿</p>
+      <div class="pill-wrap">
+        <span class="pill">상품 상세페이지 문구 프롬프트</span>
+      </div>
+    </article>
+    </div>
+    </section>
+
+    <div class="footer">프롬버튼 · 고객문의 답변 프롬프트</div>
+    </div>
+</body>
+</html>
