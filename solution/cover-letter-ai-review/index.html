@@ -135,19 +135,24 @@ a:hover { text-decoration: underline; }
 .prompt-head {
   display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
 }
+.prompt-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .prompt-title {
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
 .quick-example .prompt-title {
-  font-size: 17px;
+  font-size: 19px;
 }
 .quick-example .prompt-box {
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.8;
 }
 .copy-btn {
   border: 1px solid var(--line);
@@ -164,6 +169,13 @@ a:hover { text-decoration: underline; }
   border-color: #059669;
   color: #059669;
   background: rgba(5,150,105,0.08);
+}
+.copy-btn.secondary-action {
+  background: var(--panel-soft);
+}
+.quick-example .copy-btn {
+  font-size: 14px;
+  padding: 9px 12px;
 }
 .tool-link {
   display: inline-flex;
@@ -323,6 +335,9 @@ a:hover { text-decoration: underline; }
   .hero p { font-size: 15px; }
   .hero-actions { flex-direction: column; }
   .button { width: 100%; }
+  .prompt-title { font-size: 18px; }
+  .quick-example .prompt-title { font-size: 20px; }
+  .quick-example .prompt-box { font-size: 16px; }
   .table-head,
   .table-row {
     grid-template-columns: 1fr;

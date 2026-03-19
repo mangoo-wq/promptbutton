@@ -135,19 +135,24 @@ a:hover { text-decoration: underline; }
 .prompt-head {
   display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
 }
+.prompt-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .prompt-title {
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
 .quick-example .prompt-title {
-  font-size: 17px;
+  font-size: 19px;
 }
 .quick-example .prompt-box {
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.8;
 }
 .copy-btn {
   border: 1px solid var(--line);
@@ -164,6 +169,13 @@ a:hover { text-decoration: underline; }
   border-color: #059669;
   color: #059669;
   background: rgba(5,150,105,0.08);
+}
+.copy-btn.secondary-action {
+  background: var(--panel-soft);
+}
+.quick-example .copy-btn {
+  font-size: 14px;
+  padding: 9px 12px;
 }
 .tool-link {
   display: inline-flex;
@@ -323,6 +335,9 @@ a:hover { text-decoration: underline; }
   .hero p { font-size: 15px; }
   .hero-actions { flex-direction: column; }
   .button { width: 100%; }
+  .prompt-title { font-size: 18px; }
+  .quick-example .prompt-title { font-size: 20px; }
+  .quick-example .prompt-box { font-size: 16px; }
   .table-head,
   .table-row {
     grid-template-columns: 1fr;
@@ -401,7 +416,12 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section class="section" id="prompt-core">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">초안용 → 품질용 → 실패복구용 순서로 바로 써보면 결과 체감이 훨씬 빨라집니다.</p></div></div>
+      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">헷갈리면 1번부터 순서대로 쓰세요. 대부분 1→2만으로 바로 실무 사용 가능합니다.</p></div></div>
+      <div class="grid grid-3" style="margin-bottom:16px;">
+        <div class="card"><div class="kicker">1번</div><h3>기본안</h3><p class="muted">일단 빠르게 초안을 뽑아야 할 때. 첫 실행은 이걸로 시작하세요.</p></div>
+        <div class="card"><div class="kicker">2번</div><h3>정확도 점검</h3><p class="muted">누락/모호함/우선순위를 더 깔끔하게 정리하고 싶을 때 사용합니다.</p></div>
+        <div class="card"><div class="kicker">3번</div><h3>다시쓰기</h3><p class="muted">말투나 구조가 아쉬울 때, 결과를 자연스럽게 재정리할 때 씁니다.</p></div>
+      </div>
       <div class="card" style="margin-bottom:16px;">
         <div class="prompt-head">
           <div>
@@ -414,7 +434,7 @@ a:hover { text-decoration: underline; }
       
     <div class="card">
       <div class="prompt-head">
-        <div class="kicker">초안용 (빠르게 시작)</div>
+        <div class="kicker">1) 기본안 (먼저 실행)</div>
         <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick" onclick="copyPrompt(this)">복사</button>
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
@@ -424,7 +444,7 @@ a:hover { text-decoration: underline; }
         
     <div class="card">
       <div class="prompt-head">
-        <div class="kicker">품질용 (검수 강화)</div>
+        <div class="kicker">2) 정확도 점검</div>
         <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quality" data-slug="customer-support-reply-prompt" data-copy-variant="quality" onclick="copyPrompt(this)">복사</button>
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
@@ -433,7 +453,7 @@ a:hover { text-decoration: underline; }
         
     <div class="card">
       <div class="prompt-head">
-        <div class="kicker">실패복구용 (다시 요청)</div>
+        <div class="kicker">3) 다시쓰기</div>
         <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-recovery" data-slug="customer-support-reply-prompt" data-copy-variant="recovery" onclick="copyPrompt(this)">복사</button>
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
