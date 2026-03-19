@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>고객문의 답변 프롬프트 | CS 답변 예시 모음 - 프롬버튼</title>
-  <meta name="description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
-  <link rel="canonical" href="https://promptbutton.app/prompt/customer-support-reply-prompt">
+  <title>실험지표 | 프롬버튼</title>
+  <meta name="description" content="프롬버튼 page_view / copy_click / tool_outbound_click 실험 대시보드">
+  <link rel="canonical" href="https://promptbutton.app/metrics">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <meta property="og:title" content="고객문의 답변 프롬프트 | CS 답변 예시 모음 - 프롬버튼">
-  <meta property="og:description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
+  <meta property="og:title" content="실험지표 | 프롬버튼">
+  <meta property="og:description" content="프롬버튼 page_view / copy_click / tool_outbound_click 실험 대시보드">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://promptbutton.app/prompt/customer-support-reply-prompt">
+  <meta property="og:url" content="https://promptbutton.app/metrics">
   <meta property="og:image" content="https://promptbutton.app/assets/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="고객문의 답변 프롬프트 | CS 답변 예시 모음 - 프롬버튼">
-  <meta name="twitter:description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
+  <meta name="twitter:title" content="실험지표 | 프롬버튼">
+  <meta name="twitter:description" content="프롬버튼 page_view / copy_click / tool_outbound_click 실험 대시보드">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.svg">
   
   <style>
@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 }
 </style>
 </head>
-<body class="has-mobile-copy" data-page-type="prompt" data-page-slug="customer-support-reply-prompt">
+<body class="" data-page-type="metrics" data-page-slug="metrics">
   <div class="wrap">
     
     <header class="topbar">
@@ -290,96 +290,291 @@ a:hover { text-decoration: underline; }
     </header>
     
     <section class="section">
-      <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/cs">고객응대/쇼핑몰</a> / <span>고객문의 답변 프롬프트</span></div>
-      <div class="section-head"><div><div class="kicker">고객응대/쇼핑몰</div><h2>고객문의 답변 프롬프트</h2><p class="lead">CS 답변을 빠르고 부드럽게 쓰는 템플릿</p></div></div>
-      <div class="pill-wrap"><span class="pill">고객문의 답변 예시</span><span class='pill'>customer_message</span><span class='pill'>context</span></div>
-    </section>
-
-    <section class="section">
-      <div class="split">
-        <div class="card">
-          <div class="kicker">이런 상황이면 잘 맞아요</div>
-          <h3>고객문의 답변 예시</h3>
-          <p class="muted">고객문의 답변 예시를 찾는 사람은 보통 빠르게 답해야 하지만 말투 때문에 고객을 더 자극할까 걱정합니다. 이 페이지는 친절함과 명확함을 같이 잡는 프롬프트를 모았습니다.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">이럴 때 쓰세요</div>
-          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
+      <div class="section-head">
+        <div>
+          <div class="kicker">실험지표</div>
+          <h2>프롬버튼 이벤트 대시보드</h2>
+          <p class="lead">지금은 브라우저 로컬 로그(`pb_event_log`)를 기준으로 실험 수치를 빠르게 확인합니다. 최소 지표: page_view / copy_click / tool_outbound_click.</p>
         </div>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">초안용 → 품질용 → 실패복구용 순서로 바로 써보면 결과 체감이 훨씬 빨라집니다.</p></div></div>
-      
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">초안용 (빠르게 시작)</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick" onclick="copyPrompt(this)">복사</button>
+      <div class="card">
+        <div class="actions">
+          <label class="mini-note">집계 구간
+            <select id="metrics-window" style="margin-left:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--line);">
+              <option value="0">전체</option>
+              <option value="24">최근 24시간</option>
+              <option value="168" selected>최근 7일</option>
+            </select>
+          </label>
+          <button class="copy-btn" type="button" id="metrics-refresh">새로고침</button>
+          <button class="copy-btn" type="button" id="metrics-export">JSON 내보내기</button>
+          <button class="copy-btn" type="button" id="metrics-clear">로컬 로그 지우기</button>
+        </div>
+        <p class="mini-note" id="metrics-updated" style="margin-top:12px;">로컬 기준 마지막 갱신: -</p>
       </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
-    </div>
-    
-      <div class="grid grid-2" style="margin-top:16px;">
-        
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">품질용 (검수 강화)</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quality" data-slug="customer-support-reply-prompt" data-copy-variant="quality" onclick="copyPrompt(this)">복사</button>
-      </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
-    </div>
-    
-        
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">실패복구용 (다시 요청)</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-recovery" data-slug="customer-support-reply-prompt" data-copy-variant="recovery" onclick="copyPrompt(this)">복사</button>
-      </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
-    </div>
-    
+
+      <div class="grid grid-4" style="margin-top:16px;">
+        <div class="card"><div class="kicker">총 이벤트</div><h3 class="metric-value" id="metric-total">0</h3></div>
+        <div class="card"><div class="kicker">페이지뷰</div><h3 class="metric-value" id="metric-page-view">0</h3></div>
+        <div class="card"><div class="kicker">프롬프트 복사</div><h3 class="metric-value" id="metric-copy-click">0</h3></div>
+        <div class="card"><div class="kicker">도구 이동 클릭</div><h3 class="metric-value" id="metric-tool-outbound">0</h3></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>예시 입력 / 출력</h2><p class="lead">어떻게 넣고 어떤 결과를 기대하면 되는지 한 번에 보이게 구성했습니다.</p></div></div>
-      <div class="grid grid-2">
-        <div class="card"><div class="kicker">예시 입력</div><div class="prompt-box">상품이 아직 안 왔는데 언제 오나요? 주문한 지 4일 됐어요.</div></div>
-        <div class="card"><div class="kicker">예시 출력</div><div class="prompt-box">안녕하세요 고객님. 배송이 늦어져 불편을 드려 죄송합니다. 현재 주문하신 상품은 물류센터에서 출고 준비 중이며, 내일 중 송장 흐름이 확인될 예정입니다. 확인되는 대로 빠르게 안내드리겠습니다.</div></div>
+      <div class="section-head">
+        <div>
+          <h2>slug별 성과</h2>
+          <p class="lead">복사/도구 클릭 중심으로 상위 30개 slug를 보여줍니다.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="table-head">
+          <div>slug</div>
+          <div>복사</div>
+          <div>도구 클릭</div>
+        </div>
+        <div id="metrics-breakdown"></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>이 프롬프트와 잘 맞는 AI</h2><p class="lead">도구마다 강점이 조금씩 달라서, 이 프롬프트를 쓸 때 편한 쪽부터 고를 수 있게 정리했습니다.</p></div></div>
-      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧은 답변 초안을 빠르게 만들고 상황별 변형을 주기 쉽습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a></p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 공감 표현이 있는 응답 톤을 만들 때 좋습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="customer-support-reply-prompt">Claude 열기</a></p></div></div>
-      <div class="grid grid-2" style="margin-top:16px;">
-    <article class="card">
-      <div class="kicker">다음 단계</div>
-      <h3>이 작업에 맞는 AI 추천도 같이 보기</h3>
-      <p class="muted">프롬프트를 바로 써보는 것과 별개로, 어떤 AI가 더 편한지 비교해두면 나중에 덜 헤맵니다.</p>
-      <p style="margin-top:14px;"><a href="/recommend/customer-support-ai-tools">추천 보기 →</a></p>
-    </article>
-    </div>
+      <div class="section-head">
+        <div>
+          <h2>최근 이벤트 20개</h2>
+          <p class="lead">방금 일어난 흐름을 빠르게 점검할 때 씁니다.</p>
+        </div>
+      </div>
+      <div class="table-like" id="metrics-recent"></div>
     </section>
 
-    <section class="section">
-      <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
-      <ul class="list-clean"><li><strong>불만 고객 응대에도 쓸 수 있나요?</strong><br><span class='muted'>네. 사과 표현과 해결 안내를 같이 넣는 방향으로 충분히 쓸 수 있습니다.</span></li><li><strong>스마트스토어에도 맞나요?</strong><br><span class='muted'>맞습니다. 배송, 환불, 상품문의처럼 반복 응대에서 특히 체감이 큽니다.</span></li></ul>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><div><h2>관련 프롬프트</h2><p class="lead">같이 보면 좋은 템플릿을 이어서 연결합니다.</p></div></div>
-      <div class="grid grid-2"><div class='card'><p class='muted'>관련 프롬프트 준비 중</p></div></div>
-    </section>
-
-    <div class="mobile-copy-bar">
-      <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick_mobile" onclick="copyPrompt(this)">기본 프롬프트 복사</button>
-    </div>
-
-    <div class="footer">프롬버튼 · 고객문의 답변 프롬프트</div>
+    <div class="footer">프롬버튼 · 실험지표</div>
     </div>
   
+<script>
+(function () {
+  function byId(id) {
+    return document.getElementById(id);
+  }
+
+  function escapeHTML(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function formatNumber(value) {
+    return Number(value || 0).toLocaleString("ko-KR");
+  }
+
+  function parseEvents() {
+    try {
+      var raw = localStorage.getItem("pb_event_log") || "[]";
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter(function (item) { return item && item.event; })
+        .sort(function (a, b) {
+          return Date.parse(b.ts || 0) - Date.parse(a.ts || 0);
+        });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function formatDate(ts) {
+    if (!ts) return "-";
+    var date = new Date(ts);
+    if (isNaN(date.getTime())) return "-";
+    return date.toLocaleString("ko-KR", {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  function getSelectedHours() {
+    var select = byId("metrics-window");
+    if (!select) return 0;
+    return Number(select.value || 0);
+  }
+
+  function filterByWindow(events) {
+    var hours = getSelectedHours();
+    if (!hours) return events;
+    var cutoff = Date.now() - hours * 60 * 60 * 1000;
+    return events.filter(function (event) {
+      var ts = Date.parse(event.ts || 0);
+      return !isNaN(ts) && ts >= cutoff;
+    });
+  }
+
+  function summarize(events) {
+    var summary = {
+      total: events.length,
+      pageView: 0,
+      copyClick: 0,
+      toolOutbound: 0,
+    };
+    var slugStats = {};
+
+    events.forEach(function (event) {
+      var slug = (event.props && event.props.slug) || event.pageSlug || "(미지정)";
+      if (!slugStats[slug]) {
+        slugStats[slug] = { slug: slug, pageView: 0, copyClick: 0, toolOutbound: 0 };
+      }
+
+      if (event.event === "page_view") {
+        summary.pageView += 1;
+        slugStats[slug].pageView += 1;
+      } else if (event.event === "copy_click") {
+        summary.copyClick += 1;
+        slugStats[slug].copyClick += 1;
+      } else if (event.event === "tool_outbound_click") {
+        summary.toolOutbound += 1;
+        slugStats[slug].toolOutbound += 1;
+      }
+    });
+
+    var rows = Object.keys(slugStats)
+      .map(function (key) { return slugStats[key]; })
+      .sort(function (a, b) {
+        if (b.copyClick !== a.copyClick) return b.copyClick - a.copyClick;
+        if (b.toolOutbound !== a.toolOutbound) return b.toolOutbound - a.toolOutbound;
+        return b.pageView - a.pageView;
+      });
+
+    return { summary: summary, rows: rows };
+  }
+
+  function renderSummary(summary) {
+    byId("metric-total").textContent = formatNumber(summary.total);
+    byId("metric-page-view").textContent = formatNumber(summary.pageView);
+    byId("metric-copy-click").textContent = formatNumber(summary.copyClick);
+    byId("metric-tool-outbound").textContent = formatNumber(summary.toolOutbound);
+  }
+
+  function renderBreakdown(rows) {
+    var box = byId("metrics-breakdown");
+    if (!box) return;
+
+    if (!rows.length) {
+      box.innerHTML = '<div class="table-row"><div class="mini-note">아직 수집된 이벤트가 없습니다. 프롬프트를 복사하거나 도구 버튼을 눌러보면 숫자가 잡힙니다.</div></div>';
+      return;
+    }
+
+    box.innerHTML = rows
+      .slice(0, 30)
+      .map(function (row) {
+        return [
+          '<div class="table-row">',
+          '<div><div class="mono">' + escapeHTML(row.slug) + '</div><div class="mini-note">페이지뷰 ' + formatNumber(row.pageView) + '</div></div>',
+          '<div><strong>' + formatNumber(row.copyClick) + '</strong><div class="mini-note">복사</div></div>',
+          '<div><strong>' + formatNumber(row.toolOutbound) + '</strong><div class="mini-note">도구 클릭</div></div>',
+          '</div>',
+        ].join('');
+      })
+      .join('');
+  }
+
+  function renderRecent(events) {
+    var box = byId("metrics-recent");
+    if (!box) return;
+
+    if (!events.length) {
+      box.innerHTML = '<div class="row"><div class="muted">표시할 최근 이벤트가 없습니다.</div></div>';
+      return;
+    }
+
+    box.innerHTML = events
+      .slice(0, 20)
+      .map(function (event) {
+        var slug = (event.props && event.props.slug) || event.pageSlug || "(미지정)";
+        var detail = [];
+        if (event.props && event.props.variant) detail.push('variant: ' + event.props.variant);
+        if (event.props && event.props.tool) detail.push('tool: ' + event.props.tool);
+
+        return [
+          '<div class="row">',
+          '<div class="row-title">' + escapeHTML(event.event) + '</div>',
+          '<div class="mini-note">' + escapeHTML(formatDate(event.ts)) + ' · slug: ' + escapeHTML(slug) + '</div>',
+          detail.length ? '<div class="mini-note">' + escapeHTML(detail.join(' / ')) + '</div>' : '',
+          '</div>',
+        ].join('');
+      })
+      .join('');
+  }
+
+  function exportEvents(events) {
+    var payload = {
+      exportedAt: new Date().toISOString(),
+      windowHours: getSelectedHours(),
+      count: events.length,
+      events: events,
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "promptbutton-events.json";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function render() {
+    var allEvents = parseEvents();
+    var filtered = filterByWindow(allEvents);
+    var model = summarize(filtered);
+
+    renderSummary(model.summary);
+    renderBreakdown(model.rows);
+    renderRecent(filtered);
+
+    var updated = byId("metrics-updated");
+    if (updated) {
+      updated.textContent =
+        "로컬 기준 마지막 갱신: " +
+        new Date().toLocaleString("ko-KR", { hour12: false });
+    }
+
+    window.__pbMetricsLastEvents = filtered;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var refreshBtn = byId("metrics-refresh");
+    var exportBtn = byId("metrics-export");
+    var clearBtn = byId("metrics-clear");
+    var windowSelect = byId("metrics-window");
+
+    if (refreshBtn) refreshBtn.addEventListener("click", render);
+    if (windowSelect) windowSelect.addEventListener("change", render);
+    if (exportBtn) {
+      exportBtn.addEventListener("click", function () {
+        exportEvents(window.__pbMetricsLastEvents || []);
+      });
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        var ok = window.confirm("저장된 로컬 이벤트 로그를 모두 지울까요?");
+        if (!ok) return;
+        localStorage.removeItem("pb_event_log");
+        render();
+      });
+    }
+
+    setTimeout(render, 120);
+  });
+})();
+</script>
+
   
 <script>
 (function () {
