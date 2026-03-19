@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>프롬프트 작성법 | 프롬버튼</title>
-  <meta name="description" content="초보자도 바로 써먹는 프롬프트 작성법 가이드">
-  <link rel="canonical" href="https://promptbutton.app/guide">
+  <title>배송 지연 답변 프롬프트 | CS 지연 안내 템플릿</title>
+  <meta name="description" content="배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.">
+  <link rel="canonical" href="https://promptbutton.app/usecase/shipping-delay-reply-prompt">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <meta property="og:title" content="프롬프트 작성법 | 프롬버튼">
-  <meta property="og:description" content="초보자도 바로 써먹는 프롬프트 작성법 가이드">
+  <meta property="og:title" content="배송 지연 답변 프롬프트 | CS 지연 안내 템플릿">
+  <meta property="og:description" content="배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://promptbutton.app/guide">
+  <meta property="og:url" content="https://promptbutton.app/usecase/shipping-delay-reply-prompt">
   <meta property="og:image" content="https://promptbutton.app/assets/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="프롬프트 작성법 | 프롬버튼">
-  <meta name="twitter:description" content="초보자도 바로 써먹는 프롬프트 작성법 가이드">
+  <meta name="twitter:title" content="배송 지연 답변 프롬프트 | CS 지연 안내 템플릿">
+  <meta name="twitter:description" content="배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.svg">
   
   <!-- Google tag (gtag.js) -->
@@ -26,8 +26,12 @@
     gtag('config', 'G-D9YF1X1KTM');
   </script>
 
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://promptbutton.app"}, {"@type": "ListItem", "position": 2, "name": "작성법", "item": "https://promptbutton.app/guide"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "프롬프트 작성법", "description": "실무에서 바로 쓰는 프롬프트 작성 흐름", "step": [{"@type": "HowToStep", "name": "상황 작성", "text": "먼저 해결하려는 상황을 한 줄로 적습니다."}, {"@type": "HowToStep", "name": "출력 형식 지정", "text": "메일/회의록/요약 등 원하는 결과 모양을 명시합니다."}, {"@type": "HowToStep", "name": "변수 분리", "text": "고정 문장과 바뀌는 값(변수)을 분리해 재사용 가능하게 만듭니다."}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "프롬버튼", "url": "https://promptbutton.app", "description": "실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿", "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://promptbutton.app"}, {"@type": "ListItem", "position": 2, "name": "고객응대/쇼핑몰", "item": "https://promptbutton.app/category/cs"}, {"@type": "ListItem", "position": 3, "name": "배송 지연 안내 답변 프롬프트", "item": "https://promptbutton.app/usecase/shipping-delay-reply-prompt"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "배송 지연 안내 답변 프롬프트", "description": "배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.", "url": "https://promptbutton.app/usecase/shipping-delay-reply-prompt", "inLanguage": "ko-KR", "about": "배송 지연 문의에서 일정 안내가 불명확해 불만이 커지는 문제", "isPartOf": "https://promptbutton.app/prompt/customer-support-reply-prompt", "author": {"@type": "Organization", "name": "프롬버튼"}, "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "예상 일정이 불확실하면 어떻게 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "확정 일정 대신 범위와 다음 업데이트 시점을 함께 제시하는 것이 좋습니다."}}, {"@type": "Question", "name": "재고 부족 사유도 같이 말해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "고객 신뢰에 필요한 범위에서는 간단히 안내하는 것이 도움이 됩니다."}}, {"@type": "Question", "name": "배송 추적 링크도 넣을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 링크와 확인 방법을 함께 안내하면 재문의를 줄일 수 있습니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "배송 지연 안내 답변 프롬프트", "description": "배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.", "step": [{"@type": "HowToStep", "name": "Step 1", "text": "고객 문의 원문과 배송 현황을 입력한다"}, {"@type": "HowToStep", "name": "Step 2", "text": "기본안으로 사실 중심 안내를 만든다"}, {"@type": "HowToStep", "name": "Step 3", "text": "다시쓰기로 공감/행동 유도 문장을 보강한다"}]}</script>
   <style>
 :root {
   color-scheme: light;
@@ -388,7 +392,7 @@ a:hover { text-decoration: underline; }
 }
 </style>
 </head>
-<body class="" data-page-type="guide" data-page-slug="guide" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
+<body class="" data-page-type="usecase" data-page-slug="shipping-delay-reply-prompt" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
     
     <header class="topbar">
@@ -406,70 +410,85 @@ a:hover { text-decoration: underline; }
     </header>
     
     <section class="section">
-      <div class="section-head"><div><h2>프롬프트 작성법</h2><p class="lead">프롬프트를 몰라도 쓸 수 있게, 최소한의 원칙만 정리했습니다.</p></div></div>
-      <div class="grid grid-3">
-        <div class="card"><div class="kicker">원칙 1</div><h3>상황을 먼저 써라</h3><p class="muted">프롬프트를 잘 쓰는 사람은 어려운 말을 쓰는 사람이 아니라, 지금 뭘 해결하려는지 분명하게 적는 사람입니다.</p></div>
-        <div class="card"><div class="kicker">원칙 2</div><h3>원하는 출력 형식을 적어라</h3><p class="muted">bullet, 표, 메일, 회의록처럼 결과 모양을 함께 적으면 훨씬 안정적으로 나옵니다.</p></div>
-        <div class="card"><div class="kicker">원칙 3</div><h3>변수만 바꿔 돌려라</h3><p class="muted">잘 되는 프롬프트는 다시 쓰기 쉬워야 합니다. 고정 문장과 바뀌는 변수만 분리하세요.</p></div>
+      <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/cs">고객응대/쇼핑몰</a> / <span>배송 지연 안내 답변 프롬프트</span></div>
+      <div class="section-head"><div><div class="kicker">세부 상황 템플릿</div><h2>배송 지연 안내 답변 프롬프트</h2><p class="lead">배송 지연 문의에 대해 현재 상황과 예상 일정, 고객 액션을 명확히 안내하는 CS 템플릿입니다.</p></div></div>
+      <div class="card">
+        <div class="kicker">핵심 문제</div>
+        <p class="muted">배송 지연 문의에서 일정 안내가 불명확해 불만이 커지는 문제</p>
       </div>
     </section>
 
+    <section class="section" id="answer-summary">
+      <div class="section-head"><div><h2>핵심 답변 요약</h2><p class="lead">바로 실행할 수 있도록 핵심 맥락만 압축했습니다.</p></div></div>
+      <div class="card"><p class="muted">배송 지연 응대는 모호한 일정 안내가 가장 큰 불만 포인트입니다. 이 페이지는 현재 상태, 예상 도착 시점, 고객이 지금 할 수 있는 선택지를 명확히 전달하는 답변 구조를 제공합니다.</p></div>
+    </section>
+
     <section class="section">
-      <div class="section-head"><div><h2>좋은 프롬프트 기본 구조</h2></div></div>
-      <div class="table-like">
-        <div class="row"><div class="row-title">1. 역할</div><div class="muted">어떤 역할로 답할지 지정</div></div>
-        <div class="row"><div class="row-title">2. 상황</div><div class="muted">무슨 문제를 해결하는지 설명</div></div>
-        <div class="row"><div class="row-title">3. 원하는 결과</div><div class="muted">메일, 회의록, 요약, 문구 등 출력 형식 지정</div></div>
-        <div class="row"><div class="row-title">4. 변수</div><div class="muted">상황마다 바뀌는 값만 따로 넣기</div></div>
+      <div class="section-head"><div><h2>이런 질문이 들면 이 페이지를 쓰세요</h2></div></div>
+      <ul class="list-clean"><li>배송 지연 사유와 일정 안내를 동시에 해야 하나요?</li><li>고객 재문의를 줄이고 싶나요?</li><li>대체 조치(취소/보상) 안내까지 넣고 싶나요?</li></ul>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>실행 순서</h2><p class="lead">복잡하게 생각하지 말고 아래 순서대로 진행하면 됩니다.</p></div></div>
+      <div class="grid grid-3"><div class='card'><div class='kicker'>Step 1</div><p class='muted'>고객 문의 원문과 배송 현황을 입력한다</p></div><div class='card'><div class='kicker'>Step 2</div><p class='muted'>기본안으로 사실 중심 안내를 만든다</p></div><div class='card'><div class='kicker'>Step 3</div><p class='muted'>다시쓰기로 공감/행동 유도 문장을 보강한다</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>바로 쓸 핵심 프롬프트</h2><p class="lead">세부 상황에 맞게 가장 빨리 적용할 수 있는 기본안입니다.</p></div></div>
+      
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">기본안 복사</div>
+        <button class="copy-btn" type="button" data-copy-target="usecase-shipping-delay-reply-prompt-core" data-slug="shipping-delay-reply-prompt" data-copy-variant="usecase_core" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="usecase-shipping-delay-reply-prompt-core">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
+    </div>
+    
+      <div class="hero-actions" style="margin-top:14px;">
+        <a class="button primary" href="/prompt/customer-support-reply-prompt">전체 프롬프트 보기</a>
+        <a class="button secondary" href="/solution/customer-service-reply-examples">사례 페이지 보기</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-head"><div><h2>바로 써볼 예시</h2></div></div>
-      <ul class="list-clean"><li><strong>회의록 프롬프트 예시 7개</strong> — 회의가 끝난 뒤 발언 요약, 액션 아이템, 일정까지 한 번에 정리하고 싶을 때 쓰는 프롬프트 예시 모음입니다.</li><li><strong>메일 답장 프롬프트 모음</strong> — 답장을 빨리 보내야 하는데 예의는 지키고 싶을 때 쓰는 업무 메일 프롬프트입니다.</li><li><strong>고객문의 답변 프롬프트</strong> — 고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.</li></ul>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><div><h2>실무 가이드 모음</h2><p class="lead">검색에서 자주 찾는 정보형 질문을 별도 페이지로 정리했습니다.</p></div></div>
+    <section class="section" id="tool-guide">
+      <div class="section-head"><div><h2>관련 세부 상황</h2><p class="lead">같은 업무 맥락에서 자주 함께 찾는 템플릿입니다.</p></div></div>
       <div class="grid grid-3">
     <article class="card">
-      <div class="kicker">실무 가이드</div>
-      <h3><a href="/guide/meeting-minutes-best-practices">회의록 빨리 정리하는 실무 가이드</a></h3>
-      <p class="muted">회의 직후 메모를 실행 가능한 회의록으로 빠르게 바꾸는 실무 흐름을 정리한 가이드입니다.</p>
-      <p style="margin-top:12px;"><a href="/guide/meeting-minutes-best-practices">가이드 보기 →</a></p>
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/angry-customer-reply-prompt">불만 고객 응대 프롬프트</a></h3>
+      <p class="muted">감정이 격한 고객 문의에도 상황을 악화시키지 않고 문제 해결로 연결하는 답변 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/angry-customer-reply-prompt">바로 보기 →</a></p>
     </article>
     
     <article class="card">
-      <div class="kicker">실무 가이드</div>
-      <h3><a href="/guide/business-email-tone-guide">업무 메일 톤 정리 가이드</a></h3>
-      <p class="muted">업무 메일에서 지나치게 딱딱하거나 애매하지 않게 쓰는 톤 조정 원칙을 정리한 가이드입니다.</p>
-      <p style="margin-top:12px;"><a href="/guide/business-email-tone-guide">가이드 보기 →</a></p>
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/refund-policy-reply-prompt">환불 문의 답변 프롬프트</a></h3>
+      <p class="muted">환불 요청에 대해 정책을 명확히 안내하면서 불필요한 감정 충돌을 줄이는 CS 답변 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/refund-policy-reply-prompt">바로 보기 →</a></p>
     </article>
     
     <article class="card">
-      <div class="kicker">실무 가이드</div>
-      <h3><a href="/guide/customer-service-tone-guide">고객응대 말투 가이드</a></h3>
-      <p class="muted">고객문의 답변에서 차갑지 않으면서도 정책은 분명하게 전달하는 톤 원칙을 정리한 가이드입니다.</p>
-      <p style="margin-top:12px;"><a href="/guide/customer-service-tone-guide">가이드 보기 →</a></p>
-    </article>
-    
-    <article class="card">
-      <div class="kicker">실무 가이드</div>
-      <h3><a href="/guide/choose-ai-for-work-guide">업무용 AI 선택 가이드</a></h3>
-      <p class="muted">실무 작업 유형에 따라 ChatGPT, Claude, Gemini를 어떤 기준으로 선택하면 좋은지 정리한 가이드입니다.</p>
-      <p style="margin-top:12px;"><a href="/guide/choose-ai-for-work-guide">가이드 보기 →</a></p>
-    </article>
-    
-    <article class="card">
-      <div class="kicker">실무 가이드</div>
-      <h3><a href="/guide/prompt-variable-guide">프롬프트 변수(빈칸) 이해 가이드</a></h3>
-      <p class="muted">{{변수명}} 같은 프롬프트 빈칸이 무엇이고, 왜 재사용에 유리한지 실무 관점으로 설명한 가이드입니다.</p>
-      <p style="margin-top:12px;"><a href="/guide/prompt-variable-guide">가이드 보기 →</a></p>
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/exchange-request-reply-prompt">교환 요청 답변 프롬프트</a></h3>
+      <p class="muted">교환 요청 문의에 대해 절차·기간·주의사항을 분명하게 안내하는 고객응대 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/exchange-request-reply-prompt">바로 보기 →</a></p>
     </article>
     </div>
     </section>
 
-    <div class="footer">프롬버튼 · 프롬프트 작성법</div>
+    <section class="section">
+      <div class="section-head"><div><h2>자주 묻는 질문</h2></div></div>
+      <ul class="list-clean"><li><strong>예상 일정이 불확실하면 어떻게 쓰나요?</strong><br><span class='muted'>확정 일정 대신 범위와 다음 업데이트 시점을 함께 제시하는 것이 좋습니다.</span></li><li><strong>재고 부족 사유도 같이 말해야 하나요?</strong><br><span class='muted'>고객 신뢰에 필요한 범위에서는 간단히 안내하는 것이 도움이 됩니다.</span></li><li><strong>배송 추적 링크도 넣을 수 있나요?</strong><br><span class='muted'>네. 링크와 확인 방법을 함께 안내하면 재문의를 줄일 수 있습니다.</span></li></ul>
+    </section>
+
+    
+    <section class="section" id="feedback">
+      <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
+      <div class="feedback-actions"><a class="feedback-link primary" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=shipping-delay-reply-prompt&amp;fb=helpful" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="helpful" data-slug="shipping-delay-reply-prompt">👍 도움됐어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=shipping-delay-reply-prompt&amp;fb=confusing" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="confusing" data-slug="shipping-delay-reply-prompt">🤔 애매했어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=shipping-delay-reply-prompt&amp;fb=need_template" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="need_template" data-slug="shipping-delay-reply-prompt">🧩 필요한 템플릿 있어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=shipping-delay-reply-prompt&amp;fb=free_text" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="free_text" data-slug="shipping-delay-reply-prompt">✍️ 자유 의견 남기기</a></div>
+    </section>
+    
+
+    <div class="footer">프롬버튼 · 배송 지연 안내 답변 프롬프트</div>
     </div>
   
   

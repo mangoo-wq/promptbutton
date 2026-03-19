@@ -30,7 +30,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "프롬버튼", "url": "https://promptbutton.app", "description": "실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿", "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://promptbutton.app"}, {"@type": "ListItem", "position": 2, "name": "업무/실무", "item": "https://promptbutton.app/category/work"}, {"@type": "ListItem", "position": 3, "name": "메일 답장 프롬프트 모음", "item": "https://promptbutton.app/prompt/email-reply-prompt"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "메일 답장 프롬프트 모음", "description": "답장을 빨리 보내야 하는데 예의는 지키고 싶을 때 쓰는 업무 메일 프롬프트입니다.", "url": "https://promptbutton.app/prompt/email-reply-prompt", "about": "메일 답장 예시", "inLanguage": "ko-KR", "author": {"@type": "Organization", "name": "프롬버튼"}, "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "너무 딱딱하지 않게도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 프롬프트에 “딱딱하지 않게, 자연스럽게”를 넣으면 톤이 바로 달라집니다."}}, {"@type": "Question", "name": "거절 메일도 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "가능합니다. 상황과 핵심 메시지에 거절/보류 사유만 넣으면 됩니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "너무 딱딱하지 않게도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 프롬프트에 ‘딱딱하지 않게, 자연스럽게’라고 넣으면 톤이 바로 달라집니다."}}, {"@type": "Question", "name": "거절 메일도 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "가능합니다. 상황과 핵심 메시지에 거절/보류 사유만 넣으면 됩니다."}}, {"@type": "Question", "name": "상대가 상사일 때 더 공손하게 만들 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "가능합니다. 상대를 팀장/임원/고객처럼 구체적으로 적으면 호칭과 문장 톤이 더 안정적으로 맞춰집니다."}}, {"@type": "Question", "name": "일정 변경 메일에도 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 상황 칸에 변경 전/후 일정만 넣어도 일정 조정 메일 초안을 빠르게 만들 수 있습니다."}}, {"@type": "Question", "name": "너무 길게 나오는 걸 줄이려면요?", "acceptedAnswer": {"@type": "Answer", "text": "5문장 이내, 핵심만, bullet 금지처럼 길이 조건을 추가하면 훨씬 짧아집니다."}}, {"@type": "Question", "name": "영문 메일도 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "가능합니다. 같은 프롬프트에 ‘영문으로 작성해줘’라고 붙이면 영어 답장 초안으로 바꿀 수 있습니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "메일 답장 프롬프트 모음 사용법", "description": "정중한 업무 메일을 빠르게 쓰는 템플릿", "step": [{"@type": "HowToStep", "name": "기본안으로 시작", "text": "1) 기본안 프롬프트를 먼저 실행해 초안을 만듭니다."}, {"@type": "HowToStep", "name": "내용(빈칸) 입력", "text": "필요한 입력칸을 채운 뒤 자동 교체 복사로 실내용 텍스트를 만듭니다."}, {"@type": "HowToStep", "name": "정확도 점검 또는 다시쓰기", "text": "결과가 아쉬우면 2) 정확도 점검 또는 3) 다시쓰기를 추가 실행합니다."}]}</script>
   <style>
 :root {
@@ -417,9 +417,11 @@ a:hover { text-decoration: underline; }
         <a class="pill" href="#quickstart">빠른 사용법</a>
         <a class="pill" href="#answer-summary">핵심 요약</a>
         <a class="pill" href="#variable-fill">빈칸 채우기</a>
-        
+        <a class="pill" href="#quick-examples">실전 예시</a>
         <a class="pill" href="#prompt-core">프롬프트</a>
         <a class="pill" href="#tool-guide">AI 선택</a>
+        <a class="pill" href="#usecases">세부 상황</a>
+        <a class="pill" href="#related-guides">가이드</a>
         <a class="pill" href="#feedback">피드백</a>
       </div>
     </section>
@@ -521,6 +523,77 @@ a:hover { text-decoration: underline; }
     </section>
     
     
+        <section class="section" id="quick-examples">
+          <div class="section-head"><div><h2>실전 예시 6개</h2><p class="lead">상황별 프리셋입니다. 그대로 복사하거나, 위 입력칸(빈칸)을 채운 뒤 ‘변수 채워서 복사’를 누르면 바로 실행할 수 있습니다.</p></div></div>
+          <div class="grid grid-2">
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 1. 정중한 일정 변경 회신</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-1" data-slug="email-reply-prompt" data-copy-variant="scenario_1" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-1" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_1_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-1">아래 상황을 바탕으로 일정 변경 회신 메일을 작성해줘. 구조: 1) 요청 확인 2) 변경 가능 일정 3) 확인 요청 4) 마무리. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 2. 거절/보류 메일</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-2" data-slug="email-reply-prompt" data-copy-variant="scenario_2" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-2" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_2_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-2">아래 상황을 바탕으로 관계를 해치지 않는 거절 또는 보류 메일을 작성해줘. 공감 문장 1줄, 거절/보류 사유, 가능한 대안, 다음 확인 시점을 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 3. 팔로업 메일</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-3" data-slug="email-reply-prompt" data-copy-variant="scenario_3" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-3" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_3_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-3">아래 상황을 바탕으로 재촉처럼 보이지 않는 팔로업 메일을 작성해줘. 기존 요청 맥락을 한 줄로 요약하고, 회신 희망 시점 1개를 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 4. 자료 전달 메일</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-4" data-slug="email-reply-prompt" data-copy-variant="scenario_4" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-4" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_4_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-4">아래 정보를 바탕으로 자료 전달 메일을 작성해줘. 첨부 자료 요약, 확인 포인트, 회신 요청 여부를 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 5. 회의 요청 회신</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-5" data-slug="email-reply-prompt" data-copy-variant="scenario_5" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-5" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_5_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-5">아래 상황을 바탕으로 미팅 요청 회신 메일을 작성해줘. 가능 시간, 참석 목적, 준비사항을 간단히 넣어줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+    <div class="card quick-example">
+      <div class="prompt-head">
+        <div class="prompt-title">예시 6. 지연 안내 메일</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" type="button" data-copy-target="email-reply-prompt-scenario-6" data-slug="email-reply-prompt" data-copy-variant="scenario_6" onclick="copyPrompt(this)">그대로 복사</button>
+          <button class="copy-btn secondary-action" type="button" data-fill-target="email-reply-prompt-scenario-6" data-var-keys="situation,recipient,message" data-slug="email-reply-prompt" data-copy-variant="scenario_6_filled" onclick="fillAndCopyPrompt(this)">빈칸 채워서 복사</button>
+        </div>
+      </div>
+      <div class="prompt-box" id="email-reply-prompt-scenario-6">아래 상황을 바탕으로 작업 지연 안내 메일을 작성해줘. 현재 상태, 지연 사유, 수정 일정, 후속 계획을 명확하게 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    </div>
+        </section>
+        
 
     <section class="section">
       <div class="split">
@@ -567,6 +640,65 @@ a:hover { text-decoration: underline; }
             </div>
     </section>
 
+    <section class="section" id="usecases">
+      <div class="section-head"><div><h2>세부 상황별 템플릿</h2><p class="lead">같은 프롬프트라도 상황이 다르면 문장 구조가 달라집니다. 자주 찾는 세부 상황을 바로 골라보세요.</p></div></div>
+      <div class="grid grid-3">
+    <article class="card">
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/polite-rejection-email-prompt">정중한 거절 메일 프롬프트</a></h3>
+      <p class="muted">요청을 거절하거나 보류할 때 관계를 해치지 않는 톤으로 메일을 빠르게 작성하는 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/polite-rejection-email-prompt">바로 보기 →</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/schedule-adjustment-email-prompt">일정 변경 안내 메일 프롬프트</a></h3>
+      <p class="muted">회의/작업 일정이 바뀌었을 때 상대가 혼선 없이 이해하도록 메일을 정리하는 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/schedule-adjustment-email-prompt">바로 보기 →</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/followup-email-prompt">미답장 팔로업 메일 프롬프트</a></h3>
+      <p class="muted">답장이 없는 상대에게 재촉 느낌을 줄이면서도 회신을 유도하는 팔로업 메일 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/followup-email-prompt">바로 보기 →</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">세부 상황</div>
+      <h3><a href="/usecase/delay-notice-email-prompt">작업 지연 안내 메일 프롬프트</a></h3>
+      <p class="muted">납기 지연 상황에서 신뢰를 지키며 일정 재조정을 요청하는 업무 메일 템플릿입니다.</p>
+      <p style="margin-top:12px;"><a href="/usecase/delay-notice-email-prompt">바로 보기 →</a></p>
+    </article>
+    </div>
+    </section>
+
+    <section class="section" id="related-guides">
+      <div class="section-head"><div><h2>같이 보면 좋은 실무 가이드</h2><p class="lead">검색에서 자주 함께 묻는 배경지식과 실무 팁을 따로 정리했습니다.</p></div></div>
+      <div class="grid grid-3">
+    <article class="card">
+      <div class="kicker">실무 가이드</div>
+      <h3><a href="/guide/business-email-tone-guide">업무 메일 톤 정리 가이드</a></h3>
+      <p class="muted">업무 메일에서 지나치게 딱딱하거나 애매하지 않게 쓰는 톤 조정 원칙을 정리한 가이드입니다.</p>
+      <p style="margin-top:12px;"><a href="/guide/business-email-tone-guide">가이드 보기 →</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">실무 가이드</div>
+      <h3><a href="/guide/choose-ai-for-work-guide">업무용 AI 선택 가이드</a></h3>
+      <p class="muted">실무 작업 유형에 따라 ChatGPT, Claude, Gemini를 어떤 기준으로 선택하면 좋은지 정리한 가이드입니다.</p>
+      <p style="margin-top:12px;"><a href="/guide/choose-ai-for-work-guide">가이드 보기 →</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="kicker">실무 가이드</div>
+      <h3><a href="/guide/prompt-variable-guide">프롬프트 변수(빈칸) 이해 가이드</a></h3>
+      <p class="muted">{{변수명}} 같은 프롬프트 빈칸이 무엇이고, 왜 재사용에 유리한지 실무 관점으로 설명한 가이드입니다.</p>
+      <p style="margin-top:12px;"><a href="/guide/prompt-variable-guide">가이드 보기 →</a></p>
+    </article>
+    </div>
+    </section>
+
     
     <section class="section" id="feedback">
       <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
@@ -576,7 +708,7 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
-      <ul class="list-clean"><li><strong>너무 딱딱하지 않게도 되나요?</strong><br><span class='muted'>네. 프롬프트에 “딱딱하지 않게, 자연스럽게”를 넣으면 톤이 바로 달라집니다.</span></li><li><strong>거절 메일도 쓸 수 있나요?</strong><br><span class='muted'>가능합니다. 상황과 핵심 메시지에 거절/보류 사유만 넣으면 됩니다.</span></li></ul>
+      <ul class="list-clean"><li><strong>너무 딱딱하지 않게도 되나요?</strong><br><span class='muted'>네. 프롬프트에 ‘딱딱하지 않게, 자연스럽게’라고 넣으면 톤이 바로 달라집니다.</span></li><li><strong>거절 메일도 쓸 수 있나요?</strong><br><span class='muted'>가능합니다. 상황과 핵심 메시지에 거절/보류 사유만 넣으면 됩니다.</span></li><li><strong>상대가 상사일 때 더 공손하게 만들 수 있나요?</strong><br><span class='muted'>가능합니다. 상대를 팀장/임원/고객처럼 구체적으로 적으면 호칭과 문장 톤이 더 안정적으로 맞춰집니다.</span></li><li><strong>일정 변경 메일에도 쓸 수 있나요?</strong><br><span class='muted'>네. 상황 칸에 변경 전/후 일정만 넣어도 일정 조정 메일 초안을 빠르게 만들 수 있습니다.</span></li><li><strong>너무 길게 나오는 걸 줄이려면요?</strong><br><span class='muted'>5문장 이내, 핵심만, bullet 금지처럼 길이 조건을 추가하면 훨씬 짧아집니다.</span></li><li><strong>영문 메일도 가능한가요?</strong><br><span class='muted'>가능합니다. 같은 프롬프트에 ‘영문으로 작성해줘’라고 붙이면 영어 답장 초안으로 바꿀 수 있습니다.</span></li></ul>
     </section>
 
     <section class="section">

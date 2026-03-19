@@ -20,6 +20,27 @@
 - 메일 답장 예시: https://promptbutton.app/solution/email-reply-examples
 - 고객문의 답변 예시: https://promptbutton.app/solution/customer-service-reply-examples
 
+## Usecase Pages
+- 회의 액션아이템만 뽑는 프롬프트: https://promptbutton.app/usecase/meeting-action-items-prompt
+- 회의 내용을 5줄 요약하는 프롬프트: https://promptbutton.app/usecase/meeting-summary-bullet-prompt
+- 클라이언트 미팅 결과 보고 프롬프트: https://promptbutton.app/usecase/client-meeting-report-prompt
+- 스프린트 회고 정리 프롬프트: https://promptbutton.app/usecase/sprint-retro-notes-prompt
+- 정중한 거절 메일 프롬프트: https://promptbutton.app/usecase/polite-rejection-email-prompt
+- 일정 변경 안내 메일 프롬프트: https://promptbutton.app/usecase/schedule-adjustment-email-prompt
+- 미답장 팔로업 메일 프롬프트: https://promptbutton.app/usecase/followup-email-prompt
+- 작업 지연 안내 메일 프롬프트: https://promptbutton.app/usecase/delay-notice-email-prompt
+- 불만 고객 응대 프롬프트: https://promptbutton.app/usecase/angry-customer-reply-prompt
+- 환불 문의 답변 프롬프트: https://promptbutton.app/usecase/refund-policy-reply-prompt
+- 배송 지연 안내 답변 프롬프트: https://promptbutton.app/usecase/shipping-delay-reply-prompt
+- 교환 요청 답변 프롬프트: https://promptbutton.app/usecase/exchange-request-reply-prompt
+
+## Guide Articles
+- 회의록 빨리 정리하는 실무 가이드: https://promptbutton.app/guide/meeting-minutes-best-practices
+- 업무 메일 톤 정리 가이드: https://promptbutton.app/guide/business-email-tone-guide
+- 고객응대 말투 가이드: https://promptbutton.app/guide/customer-service-tone-guide
+- 업무용 AI 선택 가이드: https://promptbutton.app/guide/choose-ai-for-work-guide
+- 프롬프트 변수(빈칸) 이해 가이드: https://promptbutton.app/guide/prompt-variable-guide
+
 ## Notes
 - Korean language, practical business communication use-cases.
 - Reusable prompt templates with variable placeholders.
