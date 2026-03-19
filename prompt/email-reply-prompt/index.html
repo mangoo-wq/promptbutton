@@ -89,10 +89,11 @@ a:hover { text-decoration: underline; }
 .eyebrow { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .hero h1 { margin: 14px 0 12px; font-size: clamp(38px, 5vw, 58px); line-height: 1.02; letter-spacing: -0.05em; }
 .hero p { margin: 0; font-size: 18px; max-width: 700px; color: rgba(255,255,255,0.92); }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  padding: 15px 22px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  min-height: 56px; min-width: 220px; font-size: 16px;
 }
 .button.primary { background: #fff; color: var(--accent); }
 .button.secondary { background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
@@ -279,13 +280,12 @@ a:hover { text-decoration: underline; }
         <span class="brand-mark">P</span>
         <span>
           <div class="brand-title">프롬버튼</div>
-          <div class="brand-sub">직장인·취준생·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
+          <div class="brand-sub">실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
         </span>
       </a>
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
-        <a href="/metrics">실험지표</a>
       </nav>
     </header>
     
@@ -360,16 +360,26 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>이 프롬프트와 잘 맞는 AI</h2><p class="lead">도구마다 강점이 조금씩 달라서, 이 프롬프트를 쓸 때 편한 쪽부터 고를 수 있게 정리했습니다.</p></div></div>
-      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧고 또렷한 업무 답장 초안을 가장 빨리 만들기 좋습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="email-reply-prompt">ChatGPT 열기</a></p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 부드럽고 자연스러운 문장 다듬기에 강합니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="email-reply-prompt">Claude 열기</a></p></div></div>
-      <div class="grid grid-2" style="margin-top:16px;">
-    <article class="card">
-      <div class="kicker">다음 단계</div>
-      <h3>이 작업에 맞는 AI 추천도 같이 보기</h3>
-      <p class="muted">프롬프트를 바로 써보는 것과 별개로, 어떤 AI가 더 편한지 비교해두면 나중에 덜 헤맵니다.</p>
-      <p style="margin-top:14px;"><a href="/recommend/work-email-ai-tools">추천 보기 →</a></p>
-    </article>
-    </div>
+      <div class="section-head"><div><h2>이 프롬프트에 잘 맞는 AI 선택 가이드</h2><p class="lead">별도 페이지 이동 없이 이 화면에서 바로 비교하고 선택할 수 있게 정리했습니다.</p></div></div>
+      <div class="grid grid-3">
+            <div class='card'>
+              <div class='kicker'>추천 도구</div>
+              <h3>ChatGPT</h3>
+              <p class='muted'>짧고 또렷한 업무 답장 초안을 가장 빨리 만들기 좋습니다.</p>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>좋은 점</div><ul class='list-clean'><li>답장 초안을 빨리 뽑기 쉬움</li><li>상황별 변형 지시가 쉬움</li></ul></div>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>딱딱한 톤으로 나올 때가 있어 조건을 더 줘야 함</li></ul></div>
+              <p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="email-reply-prompt">ChatGPT 열기</a></p>
+            </div>
+            
+            <div class='card'>
+              <div class='kicker'>추천 도구</div>
+              <h3>Claude</h3>
+              <p class='muted'>조금 더 부드럽고 자연스러운 문장 다듬기에 강합니다.</p>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>좋은 점</div><ul class='list-clean'><li>자연스러운 톤 정리에 유리</li><li>정중하지만 과하지 않은 말투에 강점</li></ul></div>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>아주 짧은 메일은 체감 차이가 크지 않을 수 있음</li></ul></div>
+              <p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="email-reply-prompt">Claude 열기</a></p>
+            </div>
+            </div>
     </section>
 
     <section class="section">

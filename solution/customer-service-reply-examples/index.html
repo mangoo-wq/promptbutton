@@ -89,10 +89,11 @@ a:hover { text-decoration: underline; }
 .eyebrow { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .hero h1 { margin: 14px 0 12px; font-size: clamp(38px, 5vw, 58px); line-height: 1.02; letter-spacing: -0.05em; }
 .hero p { margin: 0; font-size: 18px; max-width: 700px; color: rgba(255,255,255,0.92); }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  padding: 15px 22px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  min-height: 56px; min-width: 220px; font-size: 16px;
 }
 .button.primary { background: #fff; color: var(--accent); }
 .button.secondary { background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
@@ -279,13 +280,12 @@ a:hover { text-decoration: underline; }
         <span class="brand-mark">P</span>
         <span>
           <div class="brand-title">프롬버튼</div>
-          <div class="brand-sub">직장인·취준생·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
+          <div class="brand-sub">실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
         </span>
       </a>
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
-        <a href="/metrics">실험지표</a>
       </nav>
     </header>
     
@@ -294,7 +294,7 @@ a:hover { text-decoration: underline; }
       <div class="section-head"><div><div class="kicker">이런 문제를 해결할 때</div><h2>고객응대 문장이 막히는 순간 바로 꺼내 쓰는 예시</h2><p class="lead">고객문의 답변 예시를 찾는 사람은 빠르게 답해야 하지만 말투 때문에 고객을 자극할까 걱정합니다. 이 페이지는 친절함과 명확함을 같이 잡는 예시와 프롬프트를 모았습니다.</p></div></div>
       <div class="hero-actions" style="margin-top:4px;">
         <a class="button primary" href="/prompt/customer-support-reply-prompt">프롬프트 바로 보기</a>
-        <a class="button secondary" href="/recommend/customer-support-ai-tools">맞는 AI 보기</a>
+        <a class="button secondary" href="/guide">작성법 보기</a>
       </div>
     </section>
 
@@ -334,7 +334,7 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>다음으로 볼 것</h2><p class="lead">프롬프트 전체를 보거나, 맞는 AI를 고를 때만 한 단계 더 들어가면 됩니다.</p></div></div>
+      <div class="section-head"><div><h2>다음으로 볼 것</h2><p class="lead">이 프롬프트를 실제 업무에 붙일 때 필요한 다음 단계만 남겼습니다.</p></div></div>
       <div class="grid grid-2">
     <article class="card">
       <div class="kicker">고객응대/쇼핑몰</div>
@@ -345,9 +345,9 @@ a:hover { text-decoration: underline; }
     
     <article class="card">
       <div class="kicker">다음 단계</div>
-      <h3>이 작업에 맞는 AI 고르기</h3>
-      <p class="muted">프롬프트를 먼저 써보고 괜찮으면, 그다음에 어떤 도구가 더 편한지 비교해보는 정도면 충분합니다.</p>
-      <p style="margin-top:14px;"><a href="/recommend/customer-support-ai-tools">추천 보기 →</a></p>
+      <h3>실무 적용 체크리스트 보기</h3>
+      <p class="muted">출력 결과를 그대로 보내기 전에 톤/정확도/다음 액션만 빠르게 점검하세요.</p>
+      <p style="margin-top:14px;"><a href="/guide">작성법 보기 →</a></p>
     </article>
     </div>
     </section>

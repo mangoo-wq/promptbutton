@@ -89,10 +89,11 @@ a:hover { text-decoration: underline; }
 .eyebrow { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .hero h1 { margin: 14px 0 12px; font-size: clamp(38px, 5vw, 58px); line-height: 1.02; letter-spacing: -0.05em; }
 .hero p { margin: 0; font-size: 18px; max-width: 700px; color: rgba(255,255,255,0.92); }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  padding: 15px 22px; border-radius: 14px; font-weight: 800; text-decoration: none;
+  min-height: 56px; min-width: 220px; font-size: 16px;
 }
 .button.primary { background: #fff; color: var(--accent); }
 .button.secondary { background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
@@ -279,13 +280,12 @@ a:hover { text-decoration: underline; }
         <span class="brand-mark">P</span>
         <span>
           <div class="brand-title">프롬버튼</div>
-          <div class="brand-sub">직장인·취준생·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
+          <div class="brand-sub">실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿</div>
         </span>
       </a>
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
-        <a href="/metrics">실험지표</a>
       </nav>
     </header>
     
@@ -364,16 +364,35 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>이 프롬프트와 잘 맞는 AI</h2><p class="lead">도구마다 강점이 조금씩 달라서, 이 프롬프트를 쓸 때 편한 쪽부터 고를 수 있게 정리했습니다.</p></div></div>
-      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>빠르게 초안과 액션 아이템 구조를 뽑을 때 무난합니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="meeting-minutes-prompt">ChatGPT 열기</a></p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>회의 내용이 길고 맥락이 많을 때 안정적으로 요약합니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="meeting-minutes-prompt">Claude 열기</a></p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Gemini</h3><p class='muted'>구글 문서/워크스페이스와 함께 쓸 때 접근성이 좋습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://gemini.google.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Gemini" data-slug="meeting-minutes-prompt">Gemini 열기</a></p></div></div>
-      <div class="grid grid-2" style="margin-top:16px;">
-    <article class="card">
-      <div class="kicker">다음 단계</div>
-      <h3>이 작업에 맞는 AI 추천도 같이 보기</h3>
-      <p class="muted">프롬프트를 바로 써보는 것과 별개로, 어떤 AI가 더 편한지 비교해두면 나중에 덜 헤맵니다.</p>
-      <p style="margin-top:14px;"><a href="/recommend/meeting-minutes-ai-tools">추천 보기 →</a></p>
-    </article>
-    </div>
+      <div class="section-head"><div><h2>이 프롬프트에 잘 맞는 AI 선택 가이드</h2><p class="lead">별도 페이지 이동 없이 이 화면에서 바로 비교하고 선택할 수 있게 정리했습니다.</p></div></div>
+      <div class="grid grid-3">
+            <div class='card'>
+              <div class='kicker'>추천 도구</div>
+              <h3>ChatGPT</h3>
+              <p class='muted'>빠르게 초안과 액션 아이템 구조를 뽑을 때 무난합니다.</p>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>좋은 점</div><ul class='list-clean'><li>짧은 시간 안에 구조화가 빠름</li><li>프롬프트 변형이 쉬움</li></ul></div>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>긴 회의 맥락은 한 번 더 점검 필요</li></ul></div>
+              <p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="meeting-minutes-prompt">ChatGPT 열기</a></p>
+            </div>
+            
+            <div class='card'>
+              <div class='kicker'>추천 도구</div>
+              <h3>Claude</h3>
+              <p class='muted'>회의 내용이 길고 맥락이 많을 때 안정적으로 요약합니다.</p>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>좋은 점</div><ul class='list-clean'><li>긴 문맥 요약에 안정적</li><li>톤이 자연스러움</li></ul></div>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>짧은 초안만 빠르게 뽑는 용도엔 체감 차이가 적을 수 있음</li></ul></div>
+              <p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="meeting-minutes-prompt">Claude 열기</a></p>
+            </div>
+            
+            <div class='card'>
+              <div class='kicker'>추천 도구</div>
+              <h3>Gemini</h3>
+              <p class='muted'>구글 문서/워크스페이스와 함께 쓸 때 접근성이 좋습니다.</p>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>좋은 점</div><ul class='list-clean'><li>구글 워크스페이스 사용자에게 접근성 좋음</li><li>기본 요약 용도로 무난함</li></ul></div>
+              <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>세밀한 문장 다듬기는 한 번 더 확인 권장</li></ul></div>
+              <p style="margin-top:12px;"><a class="tool-link" href="https://gemini.google.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=meeting-minutes-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Gemini" data-slug="meeting-minutes-prompt">Gemini 열기</a></p>
+            </div>
+            </div>
     </section>
 
     <section class="section">
