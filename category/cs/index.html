@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 }
 </style>
 </head>
-<body class="" data-page-type="category" data-page-slug="cs">
+<body class="" data-page-type="category" data-page-slug="cs" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
     
     <header class="topbar">
@@ -323,6 +323,70 @@ a:hover { text-decoration: underline; }
     }
   }
 
+  function sanitizeToken(value, fallback) {
+    var token = String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    if (!token) return fallback || "unknown";
+    return token;
+  }
+
+  function formatDayKey(date) {
+    var y = String(date.getFullYear());
+    var m = String(date.getMonth() + 1).padStart(2, "0");
+    var d = String(date.getDate()).padStart(2, "0");
+    return y + m + d;
+  }
+
+  function hitSharedCounter(counterName) {
+    var base = (document.body.dataset.counterApi || "").trim().replace(/[/]+$/, "");
+    var namespace = (document.body.dataset.counterNamespace || "").trim();
+    if (!base || !namespace || !window.fetch) return;
+
+    var url =
+      base +
+      "/" +
+      encodeURIComponent(namespace) +
+      "/" +
+      encodeURIComponent(counterName) +
+      "/up";
+
+    fetch(url, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-store",
+      keepalive: true,
+    }).catch(function () {
+      /* ignore */
+    });
+  }
+
+  function hitTrackedCounters(eventName, detail) {
+    if (["page_view", "copy_click", "tool_outbound_click"].indexOf(eventName) === -1) {
+      return;
+    }
+
+    var eventToken = sanitizeToken(eventName, "event");
+    var slugToken = sanitizeToken(
+      (detail && detail.slug) || document.body.dataset.pageSlug || "unknown",
+      "unknown"
+    );
+
+    hitSharedCounter(eventToken + "--all");
+    hitSharedCounter(eventToken + "--slug--" + slugToken);
+
+    var dayKey = formatDayKey(new Date());
+    hitSharedCounter("daily--" + dayKey + "--" + eventToken);
+
+    if (eventName === "tool_outbound_click" && detail && detail.tool) {
+      hitSharedCounter(
+        eventToken + "--tool--" + sanitizeToken(detail.tool, "unknown")
+      );
+    }
+  }
+
   window.pbTrack = function (name, props) {
     var detail = props || {};
     var payload = {
@@ -355,6 +419,8 @@ a:hover { text-decoration: underline; }
         /* ignore */
       }
     }
+
+    hitTrackedCounters(name, detail);
   };
 
   window.copyPrompt = async function (button) {
@@ -404,10 +470,16 @@ a:hover { text-decoration: underline; }
   };
 
   document.addEventListener("DOMContentLoaded", function () {
-    window.pbTrack("page_view", {
-      slug: document.body.dataset.pageSlug || "",
-      page_type: document.body.dataset.pageType || "unknown",
-    });
+    var pageSlug = document.body.dataset.pageSlug || "unknown";
+    var seenKey = "pb_page_view_seen__" + pageSlug;
+
+    if (!sessionStorage.getItem(seenKey)) {
+      window.pbTrack("page_view", {
+        slug: pageSlug,
+        page_type: document.body.dataset.pageType || "unknown",
+      });
+      sessionStorage.setItem(seenKey, "1");
+    }
 
     document.querySelectorAll('a[data-track="tool-outbound"]').forEach(function (link) {
       link.addEventListener("click", function () {

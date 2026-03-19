@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 }
 </style>
 </head>
-<body class="has-mobile-copy" data-page-type="prompt" data-page-slug="email-reply-prompt">
+<body class="has-mobile-copy" data-page-type="prompt" data-page-slug="email-reply-prompt" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
     
     <header class="topbar">
@@ -311,6 +311,15 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">초안용 → 품질용 → 실패복구용 순서로 바로 써보면 결과 체감이 훨씬 빨라집니다.</p></div></div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="prompt-head">
+          <div>
+            <div class="kicker">복사 후 바로 실행</div>
+            <p class="muted" style="margin:0;">프롬프트를 복사한 뒤 원하는 AI를 바로 열어 테스트하세요.</p>
+          </div>
+          <div class="actions"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="email-reply-prompt">ChatGPT 열기</a><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="email-reply-prompt">Claude 열기</a></div>
+        </div>
+      </div>
       
     <div class="card">
       <div class="prompt-head">
@@ -408,6 +417,70 @@ a:hover { text-decoration: underline; }
     }
   }
 
+  function sanitizeToken(value, fallback) {
+    var token = String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    if (!token) return fallback || "unknown";
+    return token;
+  }
+
+  function formatDayKey(date) {
+    var y = String(date.getFullYear());
+    var m = String(date.getMonth() + 1).padStart(2, "0");
+    var d = String(date.getDate()).padStart(2, "0");
+    return y + m + d;
+  }
+
+  function hitSharedCounter(counterName) {
+    var base = (document.body.dataset.counterApi || "").trim().replace(/[/]+$/, "");
+    var namespace = (document.body.dataset.counterNamespace || "").trim();
+    if (!base || !namespace || !window.fetch) return;
+
+    var url =
+      base +
+      "/" +
+      encodeURIComponent(namespace) +
+      "/" +
+      encodeURIComponent(counterName) +
+      "/up";
+
+    fetch(url, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-store",
+      keepalive: true,
+    }).catch(function () {
+      /* ignore */
+    });
+  }
+
+  function hitTrackedCounters(eventName, detail) {
+    if (["page_view", "copy_click", "tool_outbound_click"].indexOf(eventName) === -1) {
+      return;
+    }
+
+    var eventToken = sanitizeToken(eventName, "event");
+    var slugToken = sanitizeToken(
+      (detail && detail.slug) || document.body.dataset.pageSlug || "unknown",
+      "unknown"
+    );
+
+    hitSharedCounter(eventToken + "--all");
+    hitSharedCounter(eventToken + "--slug--" + slugToken);
+
+    var dayKey = formatDayKey(new Date());
+    hitSharedCounter("daily--" + dayKey + "--" + eventToken);
+
+    if (eventName === "tool_outbound_click" && detail && detail.tool) {
+      hitSharedCounter(
+        eventToken + "--tool--" + sanitizeToken(detail.tool, "unknown")
+      );
+    }
+  }
+
   window.pbTrack = function (name, props) {
     var detail = props || {};
     var payload = {
@@ -440,6 +513,8 @@ a:hover { text-decoration: underline; }
         /* ignore */
       }
     }
+
+    hitTrackedCounters(name, detail);
   };
 
   window.copyPrompt = async function (button) {
@@ -489,10 +564,16 @@ a:hover { text-decoration: underline; }
   };
 
   document.addEventListener("DOMContentLoaded", function () {
-    window.pbTrack("page_view", {
-      slug: document.body.dataset.pageSlug || "",
-      page_type: document.body.dataset.pageType || "unknown",
-    });
+    var pageSlug = document.body.dataset.pageSlug || "unknown";
+    var seenKey = "pb_page_view_seen__" + pageSlug;
+
+    if (!sessionStorage.getItem(seenKey)) {
+      window.pbTrack("page_view", {
+        slug: pageSlug,
+        page_type: document.body.dataset.pageType || "unknown",
+      });
+      sessionStorage.setItem(seenKey, "1");
+    }
 
     document.querySelectorAll('a[data-track="tool-outbound"]').forEach(function (link) {
       link.addEventListener("click", function () {
