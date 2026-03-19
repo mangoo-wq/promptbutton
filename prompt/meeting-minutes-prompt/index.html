@@ -26,7 +26,12 @@
     gtag('config', 'G-D9YF1X1KTM');
   </script>
 
-  
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "프롬버튼", "url": "https://promptbutton.app", "description": "실무자·사장님이 바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿", "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://promptbutton.app"}, {"@type": "ListItem", "position": 2, "name": "업무/실무", "item": "https://promptbutton.app/category/work"}, {"@type": "ListItem", "position": 3, "name": "회의록 프롬프트 예시 7개", "item": "https://promptbutton.app/prompt/meeting-minutes-prompt"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "회의록 프롬프트 예시 7개", "description": "회의가 끝난 뒤 발언 요약, 액션 아이템, 일정까지 한 번에 정리하고 싶을 때 쓰는 프롬프트 예시 모음입니다.", "url": "https://promptbutton.app/prompt/meeting-minutes-prompt", "about": "회의록 정리 AI", "inLanguage": "ko-KR", "author": {"@type": "Organization", "name": "프롬버튼"}, "publisher": {"@type": "Organization", "name": "프롬버튼", "url": "https://promptbutton.app"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "회의 녹취록이 없어도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 메모만 있어도 핵심 논의, 결정 사항, 후속 액션 중심으로 정리할 수 있습니다."}}, {"@type": "Question", "name": "회의록을 표로도 만들 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "가능합니다. 기본 프롬프트 뒤에 “표 형식으로 정리해줘”만 추가해도 됩니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "회의록 프롬프트 예시 7개 사용법", "description": "챗GPT로 회의록 정리할 때 바로 쓰는 템플릿", "step": [{"@type": "HowToStep", "name": "기본안으로 시작", "text": "1) 기본안 프롬프트를 먼저 실행해 초안을 만듭니다."}, {"@type": "HowToStep", "name": "내용(빈칸) 입력", "text": "필요한 입력칸을 채운 뒤 자동 교체 복사로 실내용 텍스트를 만듭니다."}, {"@type": "HowToStep", "name": "정확도 점검 또는 다시쓰기", "text": "결과가 아쉬우면 2) 정확도 점검 또는 3) 다시쓰기를 추가 실행합니다."}]}</script>
   <style>
 :root {
   color-scheme: light;
@@ -410,6 +415,7 @@ a:hover { text-decoration: underline; }
       <div class="pill-wrap"><span class="pill">회의록 정리 AI</span><span class='pill'>meeting_text</span></div>
       <div class="pill-wrap" style="margin-top:10px;">
         <a class="pill" href="#quickstart">빠른 사용법</a>
+        <a class="pill" href="#answer-summary">핵심 요약</a>
         <a class="pill" href="#variable-fill">빈칸 채우기</a>
         <a class="pill" href="#quick-examples">실전 예시</a>
         <a class="pill" href="#prompt-core">프롬프트</a>
@@ -426,6 +432,19 @@ a:hover { text-decoration: underline; }
         <div class="card"><div class="kicker">Step 3</div><h3>AI로 바로 실행</h3><p class="muted">상단 바로가기로 실행한 뒤, 결과가 약하면 품질용/복구용 프롬프트로 재요청합니다.</p></div>
       </div>
     </section>
+
+    
+    <section class="section" id="answer-summary">
+      <div class="section-head"><div><h2>핵심 답변 요약</h2><p class="lead">검색이나 AI 요약에서 바로 이해할 수 있도록 핵심만 짧게 정리했습니다.</p></div></div>
+      <div class="card">
+        <p class="muted">회의록 프롬프트 예시 7개 페이지는 <strong>회의록 정리 AI</strong>를 빠르게 해결하려는 실무자를 위한 템플릿입니다. 회의가 끝난 뒤 발언 요약, 액션 아이템, 일정까지 한 번에 정리하고 싶을 때 쓰는 프롬프트 예시 모음입니다. 이 페이지에서는 1) 기본안 2) 정확도 점검 3) 다시쓰기 3단 프롬프트를 제공해 결과 품질을 단계적으로 높일 수 있습니다. 특히 회의 내용을 빠르게 정리할 때, 발언자별 핵심 내용이 필요할 때, 액션 아이템만 뽑고 싶을 때 같은 상황에서 바로 활용하기 좋습니다. 입력칸에 내용을 넣어 자동 교체 복사를 실행하면 변수({{변수명}})를 직접 수정하지 않아도 됩니다. 먼저 기본안을 실행하고, 필요할 때 점검/다시쓰기 버전을 순서대로 적용하는 것을 권장합니다.</p>
+        <div class="pill-wrap">
+          <span class="pill">카테고리: 업무/실무</span>
+          <span class="pill">핵심 문제: 회의록 정리 AI</span>
+        </div>
+      </div>
+    </section>
+    
 
     <section class="section" id="prompt-core">
       <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">헷갈리면 1번부터 순서대로 쓰세요. 대부분 1→2만으로 바로 실무 사용 가능합니다.</p></div></div>

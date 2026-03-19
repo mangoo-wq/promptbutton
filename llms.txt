@@ -1,0 +1,25 @@
+# 프롬버튼
+> 프롬버튼은 실무자/사장님이 바로 복붙해 쓰는 한국어 업무 프롬프트 라이브러리입니다.
+
+## Core Pages
+- 홈: https://promptbutton.app
+- 작성법: https://promptbutton.app/guide
+- Full catalog: https://promptbutton.app/llms-full.txt
+
+## Categories
+- 업무/실무: https://promptbutton.app/category/work
+- 고객응대/쇼핑몰: https://promptbutton.app/category/cs
+
+## Prompt Pages
+- 회의록 프롬프트 예시 7개: https://promptbutton.app/prompt/meeting-minutes-prompt
+- 메일 답장 프롬프트 모음: https://promptbutton.app/prompt/email-reply-prompt
+- 고객문의 답변 프롬프트: https://promptbutton.app/prompt/customer-support-reply-prompt
+
+## Solution Pages
+- 회의록 정리 AI: https://promptbutton.app/solution/meeting-minutes-ai
+- 메일 답장 예시: https://promptbutton.app/solution/email-reply-examples
+- 고객문의 답변 예시: https://promptbutton.app/solution/customer-service-reply-examples
+
+## Notes
+- Korean language, practical business communication use-cases.
+- Reusable prompt templates with variable placeholders.
