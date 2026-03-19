@@ -172,6 +172,46 @@ a:hover { text-decoration: underline; }
 .mobile-copy-bar {
   display: none;
 }
+.var-grid {
+  display: grid;
+  gap: 12px;
+}
+.var-field {
+  display: grid;
+  gap: 8px;
+}
+.var-field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.var-field code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #f8faff;
+  color: var(--accent);
+  font-size: 12px;
+}
+.var-field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 88px;
+  color: var(--text);
+}
+.var-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
 .metric-value {
   margin: 8px 0 0;
   font-size: 34px;
@@ -422,6 +462,39 @@ a:hover { text-decoration: underline; }
     hitTrackedCounters(name, detail);
   };
 
+  function markCopied(button) {
+    var original = button.dataset.originalLabel || button.textContent;
+    button.dataset.originalLabel = original;
+    button.textContent = "복사됨";
+    button.classList.add("copied");
+    setTimeout(function () {
+      button.textContent = original;
+      button.classList.remove("copied");
+    }, 1300);
+  }
+
+  async function copyTextToClipboard(text) {
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    var fallback = document.createElement("textarea");
+    fallback.value = text;
+    fallback.setAttribute("readonly", "");
+    fallback.style.position = "absolute";
+    fallback.style.left = "-9999px";
+    document.body.appendChild(fallback);
+    fallback.select();
+    document.execCommand("copy");
+    fallback.remove();
+  }
+
+  function escapeRegExp(value) {
+    return String(value || "").replace(new RegExp("[.*+?^${}()|[\]\\]", "g"), "\$&");
+  }
+
   window.copyPrompt = async function (button) {
     if (!button) return;
     var targetId = button.getAttribute("data-copy-target");
@@ -433,28 +506,8 @@ a:hover { text-decoration: underline; }
     if (!text) return;
 
     try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
-      } else {
-        var fallback = document.createElement("textarea");
-        fallback.value = text;
-        fallback.setAttribute("readonly", "");
-        fallback.style.position = "absolute";
-        fallback.style.left = "-9999px";
-        document.body.appendChild(fallback);
-        fallback.select();
-        document.execCommand("copy");
-        fallback.remove();
-      }
-
-      var original = button.dataset.originalLabel || button.textContent;
-      button.dataset.originalLabel = original;
-      button.textContent = "복사됨";
-      button.classList.add("copied");
-      setTimeout(function () {
-        button.textContent = original;
-        button.classList.remove("copied");
-      }, 1300);
+      await copyTextToClipboard(text);
+      markCopied(button);
 
       window.pbTrack("copy_click", {
         slug: button.dataset.slug || document.body.dataset.pageSlug || "",
@@ -464,6 +517,55 @@ a:hover { text-decoration: underline; }
       window.pbTrack("copy_click_failed", {
         slug: button.dataset.slug || document.body.dataset.pageSlug || "",
         variant: button.dataset.copyVariant || "",
+      });
+    }
+  };
+
+  window.fillAndCopyPrompt = async function (button) {
+    if (!button) return;
+
+    var targetId = button.getAttribute("data-fill-target");
+    if (!targetId) return;
+
+    var target = document.getElementById(targetId);
+    if (!target) return;
+
+    var text = (target.innerText || target.textContent || "").trim();
+    if (!text) return;
+
+    var varKeys = String(button.getAttribute("data-var-keys") || "")
+      .split(",")
+      .map(function (item) { return item.trim(); })
+      .filter(Boolean);
+
+    var hasReplacement = false;
+
+    varKeys.forEach(function (varKey) {
+      var field = document.querySelector('[data-var-input="' + varKey + '"]');
+      if (!field) return;
+
+      var value = String(field.value || "").trim();
+      if (!value) return;
+
+      var regex = new RegExp("{{\s*" + escapeRegExp(varKey) + "\s*}}", "g");
+      text = text.replace(regex, value);
+      hasReplacement = true;
+    });
+
+    try {
+      await copyTextToClipboard(text);
+      markCopied(button);
+
+      window.pbTrack("copy_click", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+        filled: hasReplacement ? "yes" : "no",
+      });
+    } catch (err) {
+      window.pbTrack("copy_click_failed", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+        filled: hasReplacement ? "yes" : "no",
       });
     }
   };
