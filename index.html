@@ -267,6 +267,40 @@ a:hover { text-decoration: underline; }
   gap: 10px;
   flex-wrap: wrap;
 }
+.feedback-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.feedback-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.feedback-link:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--panel-soft);
+}
+.feedback-link.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+.feedback-link.primary:hover {
+  color: #fff;
+  opacity: 0.92;
+}
 .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
 .table-like { display: grid; gap: 12px; }
 .row { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); }
@@ -465,7 +499,7 @@ a:hover { text-decoration: underline; }
   }
 
   function hitTrackedCounters(eventName, detail) {
-    if (["page_view", "copy_click", "tool_outbound_click"].indexOf(eventName) === -1) {
+    if (["page_view", "copy_click", "tool_outbound_click", "feedback_click"].indexOf(eventName) === -1) {
       return;
     }
 
@@ -649,6 +683,15 @@ a:hover { text-decoration: underline; }
         window.pbTrack("tool_outbound_click", {
           slug: link.dataset.slug || document.body.dataset.pageSlug || "",
           tool: link.dataset.tool || "",
+        });
+      });
+    });
+
+    document.querySelectorAll('a[data-track="feedback-outbound"]').forEach(function (link) {
+      link.addEventListener("click", function () {
+        window.pbTrack("feedback_click", {
+          slug: link.dataset.slug || document.body.dataset.pageSlug || "",
+          feedback_type: link.dataset.feedbackType || "",
         });
       });
     });

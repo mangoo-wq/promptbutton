@@ -267,6 +267,40 @@ a:hover { text-decoration: underline; }
   gap: 10px;
   flex-wrap: wrap;
 }
+.feedback-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.feedback-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.feedback-link:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--panel-soft);
+}
+.feedback-link.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+.feedback-link.primary:hover {
+  color: #fff;
+  opacity: 0.92;
+}
 .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
 .table-like { display: grid; gap: 12px; }
 .row { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); }
@@ -353,6 +387,7 @@ a:hover { text-decoration: underline; }
         
         <a class="pill" href="#prompt-core">프롬프트</a>
         <a class="pill" href="#tool-guide">AI 선택</a>
+        <a class="pill" href="#feedback">피드백</a>
       </div>
     </section>
 
@@ -476,6 +511,13 @@ a:hover { text-decoration: underline; }
             </div>
     </section>
 
+    
+    <section class="section" id="feedback">
+      <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
+      <div class="feedback-actions"><a class="feedback-link primary" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=helpful" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="helpful" data-slug="customer-support-reply-prompt">👍 도움됐어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=confusing" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="confusing" data-slug="customer-support-reply-prompt">🤔 애매했어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=need_template" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="need_template" data-slug="customer-support-reply-prompt">🧩 필요한 템플릿 있어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=free_text" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="free_text" data-slug="customer-support-reply-prompt">✍️ 자유 의견 남기기</a></div>
+    </section>
+    
+
     <section class="section">
       <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
       <ul class="list-clean"><li><strong>불만 고객 응대에도 쓸 수 있나요?</strong><br><span class='muted'>네. 사과 표현과 해결 안내를 같이 넣는 방향으로 충분히 쓸 수 있습니다.</span></li><li><strong>스마트스토어에도 맞나요?</strong><br><span class='muted'>맞습니다. 배송, 환불, 상품문의처럼 반복 응대에서 특히 체감이 큽니다.</span></li></ul>
@@ -548,7 +590,7 @@ a:hover { text-decoration: underline; }
   }
 
   function hitTrackedCounters(eventName, detail) {
-    if (["page_view", "copy_click", "tool_outbound_click"].indexOf(eventName) === -1) {
+    if (["page_view", "copy_click", "tool_outbound_click", "feedback_click"].indexOf(eventName) === -1) {
       return;
     }
 
@@ -732,6 +774,15 @@ a:hover { text-decoration: underline; }
         window.pbTrack("tool_outbound_click", {
           slug: link.dataset.slug || document.body.dataset.pageSlug || "",
           tool: link.dataset.tool || "",
+        });
+      });
+    });
+
+    document.querySelectorAll('a[data-track="feedback-outbound"]').forEach(function (link) {
+      link.addEventListener("click", function () {
+        window.pbTrack("feedback_click", {
+          slug: link.dataset.slug || document.body.dataset.pageSlug || "",
+          feedback_type: link.dataset.feedbackType || "",
         });
       });
     });
