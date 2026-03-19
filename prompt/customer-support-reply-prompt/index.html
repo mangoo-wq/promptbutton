@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="고객문의 답변 프롬프트 | CS 답변 예시 모음 - 프롬버튼">
   <meta name="twitter:description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.svg">
+  
   <style>
 :root {
   color-scheme: light;
@@ -130,6 +131,46 @@ a:hover { text-decoration: underline; }
   margin-top: 14px; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: #f9fbff; white-space: pre-wrap;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; line-height: 1.7;
 }
+.prompt-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.copy-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.copy-btn.copied {
+  border-color: #059669;
+  color: #059669;
+  background: rgba(5,150,105,0.08);
+}
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  background: #fff;
+}
+.tool-link:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.mobile-copy-bar {
+  display: none;
+}
 .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
 .table-like { display: grid; gap: 12px; }
 .row { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); }
@@ -152,10 +193,32 @@ a:hover { text-decoration: underline; }
   .hero p { font-size: 15px; }
   .hero-actions { flex-direction: column; }
   .button { width: 100%; }
+  body.has-mobile-copy { padding-bottom: 96px; }
+  .mobile-copy-bar {
+    display: block;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    z-index: 60;
+  }
+  .mobile-copy-bar .copy-btn {
+    width: 100%;
+    height: 48px;
+    border-radius: 14px;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-size: 15px;
+  }
+  .mobile-copy-bar .copy-btn.copied {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #fff;
+  }
 }
 </style>
 </head>
-<body>
+<body class="has-mobile-copy" data-page-type="prompt" data-page-slug="customer-support-reply-prompt">
   <div class="wrap">
     
     <header class="topbar">
@@ -193,11 +256,35 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section class="section">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">기본/짧은/정중한 버전을 같이 두어 상황에 맞게 바로 써볼 수 있게 했습니다.</p></div></div>
-      <div class="card"><div class="kicker">기본 버전</div><div class="prompt-box">아래 고객 문의에 답변해줘. 말투는 친절하고 차분하게, 책임 회피처럼 보이지 않게 써줘. 필요한 안내는 분명하게 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div></div>
+      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">초안용 → 품질용 → 실패복구용 순서로 바로 써보면 결과 체감이 훨씬 빨라집니다.</p></div></div>
+      
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">초안용 (빠르게 시작)</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
+    </div>
+    
       <div class="grid grid-2" style="margin-top:16px;">
-        <div class="card"><div class="kicker">짧은 버전</div><div class="prompt-box">아래 고객 문의에 짧고 친절하게 답변해줘. 문의: {{customer_message}} 상황: {{context}}</div></div>
-        <div class="card"><div class="kicker">정중한 버전</div><div class="prompt-box">아래 고객 문의에 매우 친절하고 신뢰감 있게 답변해줘. 불편을 줄 수 있는 상황이면 사과 표현도 자연스럽게 포함해줘. 문의: {{customer_message}} 상황: {{context}}</div></div>
+        
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">품질용 (검수 강화)</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quality" data-slug="customer-support-reply-prompt" data-copy-variant="quality" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
+    </div>
+    
+        
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">실패복구용 (다시 요청)</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-recovery" data-slug="customer-support-reply-prompt" data-copy-variant="recovery" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
+    </div>
+    
       </div>
     </section>
 
@@ -211,7 +298,7 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>이 프롬프트와 잘 맞는 AI</h2><p class="lead">도구마다 강점이 조금씩 달라서, 이 프롬프트를 쓸 때 편한 쪽부터 고를 수 있게 정리했습니다.</p></div></div>
-      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧은 답변 초안을 빠르게 만들고 상황별 변형을 주기 쉽습니다.</p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 공감 표현이 있는 응답 톤을 만들 때 좋습니다.</p></div></div>
+      <div class="grid grid-3"><div class='card'><div class='kicker'>추천 도구</div><h3>ChatGPT</h3><p class='muted'>짧은 답변 초안을 빠르게 만들고 상황별 변형을 주기 쉽습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a></p></div><div class='card'><div class='kicker'>추천 도구</div><h3>Claude</h3><p class='muted'>조금 더 공감 표현이 있는 응답 톤을 만들 때 좋습니다.</p><p style="margin-top:12px;"><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="customer-support-reply-prompt">Claude 열기</a></p></div></div>
       <div class="grid grid-2" style="margin-top:16px;">
     <article class="card">
       <div class="kicker">다음 단계</div>
@@ -232,7 +319,124 @@ a:hover { text-decoration: underline; }
       <div class="grid grid-2"><div class='card'><p class='muted'>관련 프롬프트 준비 중</p></div></div>
     </section>
 
+    <div class="mobile-copy-bar">
+      <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick_mobile" onclick="copyPrompt(this)">기본 프롬프트 복사</button>
+    </div>
+
     <div class="footer">프롬버튼 · 고객문의 답변 프롬프트</div>
     </div>
+  
+  
+<script>
+(function () {
+  function pushLocalEvent(payload) {
+    try {
+      var key = "pb_event_log";
+      var prev = JSON.parse(localStorage.getItem(key) || "[]");
+      prev.push(payload);
+      localStorage.setItem(key, JSON.stringify(prev.slice(-200)));
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  window.pbTrack = function (name, props) {
+    var detail = props || {};
+    var payload = {
+      event: name,
+      props: detail,
+      path: window.location.pathname,
+      pageType: document.body.dataset.pageType || "unknown",
+      pageSlug: document.body.dataset.pageSlug || "",
+      ts: new Date().toISOString(),
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, detail));
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, Object.assign({ page_path: window.location.pathname }, detail));
+    }
+
+    if (typeof window.plausible === "function") {
+      window.plausible(name, { props: detail });
+    }
+
+    pushLocalEvent(payload);
+
+    if (window.PB_TRACK_ENDPOINT && navigator.sendBeacon) {
+      try {
+        var blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+        navigator.sendBeacon(window.PB_TRACK_ENDPOINT, blob);
+      } catch (e) {
+        /* ignore */
+      }
+    }
+  };
+
+  window.copyPrompt = async function (button) {
+    if (!button) return;
+    var targetId = button.getAttribute("data-copy-target");
+    if (!targetId) return;
+    var target = document.getElementById(targetId);
+    if (!target) return;
+
+    var text = (target.innerText || target.textContent || "").trim();
+    if (!text) return;
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        var fallback = document.createElement("textarea");
+        fallback.value = text;
+        fallback.setAttribute("readonly", "");
+        fallback.style.position = "absolute";
+        fallback.style.left = "-9999px";
+        document.body.appendChild(fallback);
+        fallback.select();
+        document.execCommand("copy");
+        fallback.remove();
+      }
+
+      var original = button.dataset.originalLabel || button.textContent;
+      button.dataset.originalLabel = original;
+      button.textContent = "복사됨";
+      button.classList.add("copied");
+      setTimeout(function () {
+        button.textContent = original;
+        button.classList.remove("copied");
+      }, 1300);
+
+      window.pbTrack("copy_click", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+      });
+    } catch (err) {
+      window.pbTrack("copy_click_failed", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+      });
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    window.pbTrack("page_view", {
+      slug: document.body.dataset.pageSlug || "",
+      page_type: document.body.dataset.pageType || "unknown",
+    });
+
+    document.querySelectorAll('a[data-track="tool-outbound"]').forEach(function (link) {
+      link.addEventListener("click", function () {
+        window.pbTrack("tool_outbound_click", {
+          slug: link.dataset.slug || document.body.dataset.pageSlug || "",
+          tool: link.dataset.tool || "",
+        });
+      });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

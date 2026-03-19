@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="메일 답장 예시 | 정중한 업무 메일 AI 프롬프트 - 프롬버튼">
   <meta name="twitter:description" content="메일 답장 예시를 찾는 사람은 보통 예의는 지키고 싶은데 문장이 잘 안 떠오릅니다. 이 페이지는 정중한 업무 메일을 빠르게 쓰는 프롬프트와 예시를 모았습니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.svg">
+  
   <style>
 :root {
   color-scheme: light;
@@ -130,6 +131,46 @@ a:hover { text-decoration: underline; }
   margin-top: 14px; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: #f9fbff; white-space: pre-wrap;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; line-height: 1.7;
 }
+.prompt-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.copy-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.copy-btn.copied {
+  border-color: #059669;
+  color: #059669;
+  background: rgba(5,150,105,0.08);
+}
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  background: #fff;
+}
+.tool-link:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.mobile-copy-bar {
+  display: none;
+}
 .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
 .table-like { display: grid; gap: 12px; }
 .row { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); }
@@ -152,10 +193,32 @@ a:hover { text-decoration: underline; }
   .hero p { font-size: 15px; }
   .hero-actions { flex-direction: column; }
   .button { width: 100%; }
+  body.has-mobile-copy { padding-bottom: 96px; }
+  .mobile-copy-bar {
+    display: block;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    z-index: 60;
+  }
+  .mobile-copy-bar .copy-btn {
+    width: 100%;
+    height: 48px;
+    border-radius: 14px;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-size: 15px;
+  }
+  .mobile-copy-bar .copy-btn.copied {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #fff;
+  }
 }
 </style>
 </head>
-<body>
+<body class="" data-page-type="solution" data-page-slug="email-reply-examples">
   <div class="wrap">
     
     <header class="topbar">
@@ -183,12 +246,17 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>바로 쓸 프롬프트 미리보기</h2><p class="lead">복잡한 설명보다 먼저, 실제로 어떤 문장을 복붙하게 되는지부터 보여줍니다.</p></div></div>
-      <div class="card">
+      
+    <div class="card">
+      <div class="prompt-head">
         <div class="kicker">프롬프트 미리보기</div>
-        <div class="prompt-box">아래 상황에 맞는 정중한 업무 메일 답장을 작성해줘. 톤은 예의 바르고 간결하게, 너무 딱딱하지 않게 써줘. 상황: {{situation}} 상대: {{recipient}} 원하는 핵심 메시지: {{message}}</div>
-        <div class="hero-actions" style="margin-top:16px;">
-          <a class="button primary" href="/prompt/email-reply-prompt">전체 프롬프트 열기</a>
-        </div>
+        <button class="copy-btn" type="button" data-copy-target="preview-email-reply-prompt" data-slug="email-reply-prompt" data-copy-variant="preview" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="preview-email-reply-prompt">아래 정보를 바탕으로 바로 보낼 수 있는 업무 메일 답장을 작성해줘. 구조: 1) 한 줄 공감/감사 2) 핵심 답변 3) 다음 액션 또는 일정 4) 마무리. 길이는 5~7문장. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
+    </div>
+    
+      <div class="hero-actions" style="margin-top:16px;">
+        <a class="button primary" href="/prompt/email-reply-prompt">전체 프롬프트 열기</a>
       </div>
     </section>
 
@@ -232,5 +300,118 @@ a:hover { text-decoration: underline; }
 
     <div class="footer">프롬버튼 · 메일 답장 예시</div>
     </div>
+  
+  
+<script>
+(function () {
+  function pushLocalEvent(payload) {
+    try {
+      var key = "pb_event_log";
+      var prev = JSON.parse(localStorage.getItem(key) || "[]");
+      prev.push(payload);
+      localStorage.setItem(key, JSON.stringify(prev.slice(-200)));
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  window.pbTrack = function (name, props) {
+    var detail = props || {};
+    var payload = {
+      event: name,
+      props: detail,
+      path: window.location.pathname,
+      pageType: document.body.dataset.pageType || "unknown",
+      pageSlug: document.body.dataset.pageSlug || "",
+      ts: new Date().toISOString(),
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, detail));
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, Object.assign({ page_path: window.location.pathname }, detail));
+    }
+
+    if (typeof window.plausible === "function") {
+      window.plausible(name, { props: detail });
+    }
+
+    pushLocalEvent(payload);
+
+    if (window.PB_TRACK_ENDPOINT && navigator.sendBeacon) {
+      try {
+        var blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+        navigator.sendBeacon(window.PB_TRACK_ENDPOINT, blob);
+      } catch (e) {
+        /* ignore */
+      }
+    }
+  };
+
+  window.copyPrompt = async function (button) {
+    if (!button) return;
+    var targetId = button.getAttribute("data-copy-target");
+    if (!targetId) return;
+    var target = document.getElementById(targetId);
+    if (!target) return;
+
+    var text = (target.innerText || target.textContent || "").trim();
+    if (!text) return;
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        var fallback = document.createElement("textarea");
+        fallback.value = text;
+        fallback.setAttribute("readonly", "");
+        fallback.style.position = "absolute";
+        fallback.style.left = "-9999px";
+        document.body.appendChild(fallback);
+        fallback.select();
+        document.execCommand("copy");
+        fallback.remove();
+      }
+
+      var original = button.dataset.originalLabel || button.textContent;
+      button.dataset.originalLabel = original;
+      button.textContent = "복사됨";
+      button.classList.add("copied");
+      setTimeout(function () {
+        button.textContent = original;
+        button.classList.remove("copied");
+      }, 1300);
+
+      window.pbTrack("copy_click", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+      });
+    } catch (err) {
+      window.pbTrack("copy_click_failed", {
+        slug: button.dataset.slug || document.body.dataset.pageSlug || "",
+        variant: button.dataset.copyVariant || "",
+      });
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    window.pbTrack("page_view", {
+      slug: document.body.dataset.pageSlug || "",
+      page_type: document.body.dataset.pageType || "unknown",
+    });
+
+    document.querySelectorAll('a[data-track="tool-outbound"]').forEach(function (link) {
+      link.addEventListener("click", function () {
+        window.pbTrack("tool_outbound_click", {
+          slug: link.dataset.slug || document.body.dataset.pageSlug || "",
+          tool: link.dataset.tool || "",
+        });
+      });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
