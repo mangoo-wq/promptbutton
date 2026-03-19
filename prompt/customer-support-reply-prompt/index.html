@@ -365,44 +365,6 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
-    
-    <section class="section" id="variable-fill">
-      <div class="section-head"><div><h2>복사 + 변수 교체</h2><p class="lead">아래 칸만 채우면 변수({{...}})를 자동으로 바꿔서 바로 복사할 수 있습니다.</p></div></div>
-      <div class="var-grid">
-        <label class="var-field">
-          <span class="var-field-label">고객 문의 원문 <code>{{customer_message}}</code></span>
-          <textarea data-var-input="customer_message" rows="6" placeholder="고객이 보낸 문의 메시지를 그대로 붙여넣으세요."></textarea>
-        </label>
-        
-        <label class="var-field">
-          <span class="var-field-label">정책/현재 상황 <code>{{context}}</code></span>
-          <textarea data-var-input="context" rows="4" placeholder="정책, 처리 가능 범위, 기한 등 내부 기준을 적어주세요."></textarea>
-        </label>
-        </div>
-      <div class="actions" style="margin-top:14px;">
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quick" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quick_filled" onclick="fillAndCopyPrompt(this)">초안용 변수 채워서 복사</button>
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quality" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quality_filled" onclick="fillAndCopyPrompt(this)">품질용 변수 채워서 복사</button>
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-recovery" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="recovery_filled" onclick="fillAndCopyPrompt(this)">복구용 변수 채워서 복사</button>
-      </div>
-      <p class="mini-note" style="margin-top:10px;">입력하지 않은 변수는 기존 표시({{변수명}})로 남겨둔 상태로 복사됩니다.</p>
-    </section>
-    
-    
-
-    <section class="section">
-      <div class="split">
-        <div class="card">
-          <div class="kicker">이런 상황이면 잘 맞아요</div>
-          <h3>고객문의 답변 예시</h3>
-          <p class="muted">고객문의 답변 예시를 찾는 사람은 보통 빠르게 답해야 하지만 말투 때문에 고객을 더 자극할까 걱정합니다. 이 페이지는 친절함과 명확함을 같이 잡는 프롬프트를 모았습니다.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">이럴 때 쓰세요</div>
-          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="prompt-core">
       <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">초안용 → 품질용 → 실패복구용 순서로 바로 써보면 결과 체감이 훨씬 빨라집니다.</p></div></div>
       <div class="card" style="margin-bottom:16px;">
@@ -442,6 +404,44 @@ a:hover { text-decoration: underline; }
       <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
     </div>
     
+      </div>
+    </section>
+
+    
+    <section class="section" id="variable-fill">
+      <div class="section-head"><div><h2>복사 + 변수 교체</h2><p class="lead">아래 칸만 채우면 변수({{...}})를 자동으로 바꿔서 바로 복사할 수 있습니다.</p></div></div>
+      <div class="var-grid">
+        <label class="var-field">
+          <span class="var-field-label">고객 문의 원문 <code>{{customer_message}}</code></span>
+          <textarea data-var-input="customer_message" rows="6" placeholder="고객이 보낸 문의 메시지를 그대로 붙여넣으세요."></textarea>
+        </label>
+        
+        <label class="var-field">
+          <span class="var-field-label">정책/현재 상황 <code>{{context}}</code></span>
+          <textarea data-var-input="context" rows="4" placeholder="정책, 처리 가능 범위, 기한 등 내부 기준을 적어주세요."></textarea>
+        </label>
+        </div>
+      <div class="actions" style="margin-top:14px;">
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quick" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quick_filled" onclick="fillAndCopyPrompt(this)">초안용 변수 채워서 복사</button>
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quality" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quality_filled" onclick="fillAndCopyPrompt(this)">품질용 변수 채워서 복사</button>
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-recovery" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="recovery_filled" onclick="fillAndCopyPrompt(this)">복구용 변수 채워서 복사</button>
+      </div>
+      <p class="mini-note" style="margin-top:10px;">입력하지 않은 변수는 기존 표시({{변수명}})로 남겨둔 상태로 복사됩니다.</p>
+    </section>
+    
+    
+
+    <section class="section">
+      <div class="split">
+        <div class="card">
+          <div class="kicker">이런 상황이면 잘 맞아요</div>
+          <h3>고객문의 답변 예시</h3>
+          <p class="muted">고객문의 답변 예시를 찾는 사람은 보통 빠르게 답해야 하지만 말투 때문에 고객을 더 자극할까 걱정합니다. 이 페이지는 친절함과 명확함을 같이 잡는 프롬프트를 모았습니다.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">이럴 때 쓰세요</div>
+          <ul class="list-clean"><li>스마트스토어/쇼핑몰 고객응대</li><li>배송/상품 문의 답변</li><li>불만 고객 응대 초안 작성</li></ul>
+        </div>
       </div>
     </section>
 
