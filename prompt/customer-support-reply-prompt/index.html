@@ -598,6 +598,17 @@ a:hover { text-decoration: underline; }
     return y + m + d;
   }
 
+  function gaEventName(name) {
+    var map = {
+      page_view: "pb_page_view",
+      copy_click: "pb_copy_click",
+      tool_outbound_click: "pb_tool_outbound_click",
+      feedback_click: "pb_feedback_click",
+    };
+
+    return map[name] || ("pb_" + sanitizeToken(name, "event"));
+  }
+
   function hitSharedCounter(counterName) {
     var base = (document.body.dataset.counterApi || "").trim().replace(/[/]+$/, "");
     var namespace = (document.body.dataset.counterNamespace || "").trim();
@@ -647,8 +658,10 @@ a:hover { text-decoration: underline; }
 
   window.pbTrack = function (name, props) {
     var detail = props || {};
+    var gaName = gaEventName(name);
     var payload = {
       event: name,
+      gaEvent: gaName,
       props: detail,
       path: window.location.pathname,
       pageType: document.body.dataset.pageType || "unknown",
@@ -657,10 +670,22 @@ a:hover { text-decoration: underline; }
     };
 
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({ event: name }, detail));
+    window.dataLayer.push(Object.assign({ event: name, ga_event: gaName }, detail));
 
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, Object.assign({ page_path: window.location.pathname }, detail));
+      window.gtag(
+        "event",
+        gaName,
+        Object.assign(
+          {
+            page_path: window.location.pathname,
+            page_type: document.body.dataset.pageType || "unknown",
+            page_slug: document.body.dataset.pageSlug || "",
+            source_event: name,
+          },
+          detail
+        )
+      );
     }
 
     if (typeof window.plausible === "function") {
