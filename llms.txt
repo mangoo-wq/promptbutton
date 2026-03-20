@@ -4,6 +4,10 @@
 ## Core Pages
 - 홈: https://promptbutton.app
 - 작성법: https://promptbutton.app/guide
+- 소개: https://promptbutton.app/about
+- 문의: https://promptbutton.app/contact
+- 개인정보처리방침: https://promptbutton.app/privacy
+- 이용안내: https://promptbutton.app/terms
 - Full catalog: https://promptbutton.app/llms-full.txt
 
 ## Categories
