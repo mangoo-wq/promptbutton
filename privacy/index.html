@@ -674,26 +674,16 @@ a:hover { text-decoration: underline; }
     }
   };
 
-  window.fillAndCopyPrompt = async function (button) {
-    if (!button) return;
-
-    var targetId = button.getAttribute("data-fill-target");
-    if (!targetId) return;
-
+  function buildFilledPrompt(targetId, varKeys) {
     var target = document.getElementById(targetId);
-    if (!target) return;
+    if (!target) return { text: "", hasReplacement: false };
 
     var text = (target.innerText || target.textContent || "").trim();
-    if (!text) return;
-
-    var varKeys = String(button.getAttribute("data-var-keys") || "")
-      .split(",")
-      .map(function (item) { return item.trim(); })
-      .filter(Boolean);
+    if (!text) return { text: "", hasReplacement: false };
 
     var hasReplacement = false;
 
-    varKeys.forEach(function (varKey) {
+    (varKeys || []).forEach(function (varKey) {
       var field = document.querySelector('[data-var-input="' + varKey + '"]');
       if (!field) return;
 
@@ -705,22 +695,83 @@ a:hover { text-decoration: underline; }
       hasReplacement = true;
     });
 
+    return { text: text, hasReplacement: hasReplacement };
+  }
+
+  window.previewFilledPrompt = function (button) {
+    if (!button) return;
+    var targetId = button.getAttribute("data-fill-target");
+    if (!targetId) return;
+
+    var varKeys = String(button.getAttribute("data-var-keys") || "")
+      .split(",")
+      .map(function (item) { return item.trim(); })
+      .filter(Boolean);
+
+    var result = buildFilledPrompt(targetId, varKeys);
+    if (!result.text) return;
+
+    var preview = document.getElementById("generated-preview");
+    if (preview) {
+      preview.textContent = result.text;
+      preview.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  };
+
+  window.fillAndCopyPrompt = async function (button) {
+    if (!button) return;
+
+    var targetId = button.getAttribute("data-fill-target");
+    if (!targetId) return;
+
+    var varKeys = String(button.getAttribute("data-var-keys") || "")
+      .split(",")
+      .map(function (item) { return item.trim(); })
+      .filter(Boolean);
+
+    var result = buildFilledPrompt(targetId, varKeys);
+    var text = result.text;
+    if (!text) return;
+
     try {
       await copyTextToClipboard(text);
       markCopied(button);
 
+      var preview = document.getElementById("generated-preview");
+      if (preview) preview.textContent = text;
+
       window.pbTrack("copy_click", {
         slug: button.dataset.slug || document.body.dataset.pageSlug || "",
         variant: button.dataset.copyVariant || "",
-        filled: hasReplacement ? "yes" : "no",
+        filled: result.hasReplacement ? "yes" : "no",
       });
     } catch (err) {
       window.pbTrack("copy_click_failed", {
         slug: button.dataset.slug || document.body.dataset.pageSlug || "",
         variant: button.dataset.copyVariant || "",
-        filled: hasReplacement ? "yes" : "no",
+        filled: result.hasReplacement ? "yes" : "no",
       });
     }
+  };
+
+  window.applyPresetValues = function (button) {
+    if (!button) return;
+    var fieldData = [];
+    try {
+      fieldData = JSON.parse(button.getAttribute("data-fill-fields") || "[]");
+    } catch (e) {
+      fieldData = [];
+    }
+
+    fieldData.forEach(function (item) {
+      if (!item || !item.key) return;
+      var field = document.querySelector('[data-var-input="' + item.key + '"]');
+      if (!field) return;
+      field.value = item.value || "";
+    });
+
+    var previewButton = document.querySelector('[data-preview-default="true"]');
+    if (previewButton) window.previewFilledPrompt(previewButton);
   };
 
   document.addEventListener("DOMContentLoaded", function () {
