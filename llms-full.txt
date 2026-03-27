@@ -87,6 +87,36 @@ URL: https://promptbutton.app/usecase/exchange-request-reply-prompt
 Problem: 교환 절차 안내 누락으로 동일 문의가 반복되는 문제
 Summary: 교환 응대는 절차 누락이 생기면 추가 문의가 반복됩니다. 이 페이지는 교환 가능 여부, 접수 절차, 회수/재발송 일정, 고객 준비사항을 한 번에 안내하는 CS 프롬프트 흐름을 제공합니다.
 
+### 1:1 미팅 정리 프롬프트
+URL: https://promptbutton.app/usecase/one-on-one-meeting-notes-prompt
+Problem: 1:1 면담 메모가 감상 수준에 머물고 실행 항목으로 이어지지 않는 문제
+Summary: 1:1 미팅은 민감한 표현과 액션아이템을 함께 다뤄야 해서 정리가 어렵습니다. 이 페이지는 현황, 이슈, 지원 필요사항, 다음 점검 시점을 균형 있게 정리하는 흐름을 제공합니다.
+
+### 프로젝트 킥오프 회의록 프롬프트
+URL: https://promptbutton.app/usecase/kickoff-meeting-notes-prompt
+Problem: 킥오프 회의 후 역할과 일정 해석이 엇갈리는 문제
+Summary: 킥오프 회의는 초반에 범위와 역할을 깔끔하게 못 잡으면 이후 커뮤니케이션 비용이 커집니다. 이 페이지는 목표, 범위, 담당자, 마일스톤, 오픈 이슈까지 한 번에 정리하는 흐름을 제공합니다.
+
+### 회의 결정사항 정리 프롬프트
+URL: https://promptbutton.app/usecase/meeting-decision-log-prompt
+Problem: 회의는 길었는데 최종 결정사항이 흐려지는 문제
+Summary: 의사결정 회의는 논의 내용보다 최종 결정과 후속조치가 더 중요합니다. 이 페이지는 안건별 결정 상태, 근거, 후속 실행 항목, 재검토 일정을 분리해 정리하는 흐름을 제공합니다.
+
+### 미팅 일정 재조정 메일 프롬프트
+URL: https://promptbutton.app/usecase/reschedule-meeting-reply-prompt
+Problem: 일정 재조정 메일이 애매해 왕복 커뮤니케이션이 늘어나는 문제
+Summary: 일정 재조정 메일은 상대가 다시 묻지 않게 새 시간과 확인 포인트를 명확히 적는 게 핵심입니다. 이 페이지는 요청 확인, 변경 가능 시간, 필요 준비사항, 회신 포인트를 한 번에 정리하는 흐름을 제공합니다.
+
+### 거래처 회신 재촉 없는 팔로업 메일
+URL: https://promptbutton.app/usecase/vendor-followup-email-prompt
+Problem: 외부 파트너 회신이 늦어지는데 강하게 재촉하기 어려운 문제
+Summary: 거래처 팔로업은 관계를 유지하면서도 일정 지연을 막아야 해서 톤 조절이 중요합니다. 이 페이지는 기존 요청 요약, 현재 필요한 확인사항, 회신 희망 시점, 다음 액션을 균형 있게 담는 흐름을 제공합니다.
+
+### 품절·재입고 문의 답변 프롬프트
+URL: https://promptbutton.app/usecase/out-of-stock-reply-prompt
+Problem: 품절/재입고 문의 답변이 모호해 재문의가 반복되는 문제
+Summary: 품절 문의는 재입고 일정이 불확실할수록 고객 불만이 커지기 쉽습니다. 이 페이지는 현재 상태, 예정 여부, 대체 옵션, 다음 안내 시점을 한 번에 전달하는 흐름을 제공합니다.
+
 ## Guide Catalog
 ### 회의록 빨리 정리하는 실무 가이드
 URL: https://promptbutton.app/guide/meeting-minutes-best-practices

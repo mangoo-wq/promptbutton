@@ -18,6 +18,12 @@
 <url><loc>https://promptbutton.app/usecase/refund-policy-reply-prompt</loc></url>
 <url><loc>https://promptbutton.app/usecase/shipping-delay-reply-prompt</loc></url>
 <url><loc>https://promptbutton.app/usecase/exchange-request-reply-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/one-on-one-meeting-notes-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/kickoff-meeting-notes-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/meeting-decision-log-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/reschedule-meeting-reply-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/vendor-followup-email-prompt</loc></url>
+<url><loc>https://promptbutton.app/usecase/out-of-stock-reply-prompt</loc></url>
 <url><loc>https://promptbutton.app/solution/meeting-minutes-ai</loc></url>
 <url><loc>https://promptbutton.app/solution/email-reply-examples</loc></url>
 <url><loc>https://promptbutton.app/solution/customer-service-reply-examples</loc></url>
