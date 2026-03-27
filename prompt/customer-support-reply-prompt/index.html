@@ -445,10 +445,10 @@ a:hover { text-decoration: underline; }
       <div class="section-head"><div><div class="kicker">고객응대/쇼핑몰</div><h2>고객응대 답변 프롬프트</h2><p class="lead">배송 지연, 환불, 교환 문의에 바로 쓰는 CS 템플릿</p></div></div>
       <div class="pill-wrap"><span class="pill">고객문의 답변 예시</span><span class='pill'>customer_message</span><span class='pill'>context</span></div>
       <div class="pill-wrap" style="margin-top:10px;">
-        <a class="pill" href="#quickstart">빠른 사용법</a>
         <a class="pill" href="#variable-fill">빈칸 채우기</a>
         <a class="pill" href="#quick-examples">실전 예시</a>
-        <a class="pill" href="#prompt-core">프롬프트</a>
+        <a class="pill" href="#quickstart">사용 순서</a>
+        <a class="pill" href="#prompt-core">원본 프롬프트</a>
         <a class="pill" href="#tool-guide">AI 선택</a>
         <a class="pill" href="#usecases">세부 상황</a>
         <a class="pill" href="#related-guides">가이드</a>
@@ -456,83 +456,30 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
-    <section class="section" id="quickstart">
-      <div class="section-head"><div><h2>빠른 사용법</h2><p class="lead">아래 순서대로 하면 대부분 1분 안에 초안까지 뽑을 수 있습니다.</p></div></div>
-      <div class="grid grid-3">
-        <div class="card"><div class="kicker">Step 1</div><h3>지금 상황과 가까운 예시를 고릅니다</h3><p class="muted">먼저 기본안만 보지 말고, 아래 실전 예시 중 지금 상황과 가장 비슷한 템플릿부터 고르세요.</p></div>
-        <div class="card"><div class="kicker">Step 2</div><h3>빈칸만 채워 복사합니다</h3><p class="muted">입력칸만 채우면 <code>{{변수명}}</code> 자리에 실제 내용이 들어간 상태로 바로 복사됩니다.</p></div>
-        <div class="card"><div class="kicker">Step 3</div><h3>결과가 약하면 2번, 어색하면 3번</h3><p class="muted">첫 결과가 애매하면 정확도 점검, 말투가 어색하면 다시쓰기를 이어서 붙이면 됩니다.</p></div>
-      </div>
-    </section>
-
-
-    <section class="section" id="prompt-core">
-      <div class="section-head"><div><h2>바로 복붙하는 프롬프트</h2><p class="lead">설명 읽느라 멈추지 않게, 실제로 바로 붙여넣을 문장부터 먼저 보여줍니다. 보통은 1번으로 시작하고, 부족하면 2번이나 3번만 이어 붙이면 됩니다.</p></div></div>
-      <div class="grid grid-3" style="margin-bottom:16px;">
-        <div class="card"><div class="kicker">1번</div><h3>초안 뽑기</h3><p class="muted">일단 빨리 문장을 만들어야 할 때 씁니다. 첫 실행은 거의 이걸로 시작하면 됩니다.</p></div>
-        <div class="card"><div class="kicker">2번</div><h3>빠진 것 점검</h3><p class="muted">담당자, 마감일, 확인 필요 항목처럼 빠지면 곤란한 요소를 더 깔끔하게 정리할 때 붙입니다.</p></div>
-        <div class="card"><div class="kicker">3번</div><h3>사람 말처럼 다듬기</h3><p class="muted">AI 티가 나거나 문장이 너무 뻣뻣할 때, 말투와 흐름을 자연스럽게 다시 정리할 때 씁니다.</p></div>
-      </div>
-      <div class="card" style="margin-bottom:16px;">
-        <div class="prompt-head">
-          <div>
-            <div class="kicker">복사 후 바로 실행</div>
-            <p class="muted" style="margin:0;">복사한 뒤 바로 붙여넣어 보세요. 첫 결과가 완벽할 필요는 없고, 2번/3번으로 바로 다듬으면 됩니다.</p>
-          </div>
-          <div class="actions"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="customer-support-reply-prompt">Claude 열기</a></div>
-        </div>
-      </div>
-      
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">1) 기본안 (먼저 실행)</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick" onclick="copyPrompt(this)">복사</button>
-      </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
-    </div>
-    
-      <div class="grid grid-2" style="margin-top:16px;">
-        
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">2) 정확도 점검</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quality" data-slug="customer-support-reply-prompt" data-copy-variant="quality" onclick="copyPrompt(this)">복사</button>
-      </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
-    </div>
-    
-        
-    <div class="card">
-      <div class="prompt-head">
-        <div class="kicker">3) 다시쓰기</div>
-        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-recovery" data-slug="customer-support-reply-prompt" data-copy-variant="recovery" onclick="copyPrompt(this)">복사</button>
-      </div>
-      <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
-    </div>
-    
-      </div>
-    </section>
-
     
     <section class="section" id="variable-fill">
-      <div class="section-head"><div><h2>내용만 넣고 자동 교체 복사</h2><p class="lead">여기서 변수는 <strong>빈칸</strong>입니다. 예: {{meeting_text}} → 회의 메모. 아래 칸을 채우면 자동으로 바뀐 상태로 복사됩니다.</p></div></div>
+      <div class="section-head"><div><h2>먼저 내용부터 넣어보세요</h2><p class="lead">프롬프트 문장을 읽기보다, 지금 가진 내용만 넣고 바로 완성본을 만드는 쪽이 더 빠릅니다.</p></div></div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="kicker">가장 쉬운 사용 방식</div>
+        <p class="muted" style="margin:0;">아래 칸만 채우면 프롬버튼이 실제로 붙여넣을 문장으로 바꿔줍니다. 원본 프롬프트는 아래쪽에서 필요할 때만 보면 됩니다.</p>
+      </div>
       <div class="var-grid">
         <label class="var-field">
-          <span class="var-field-label">고객 문의 원문 <code>{{customer_message}}</code></span>
+          <span class="var-field-label">고객 문의 원문</span>
           <textarea data-var-input="customer_message" rows="6" placeholder="고객이 보낸 문의 메시지를 그대로 붙여넣으세요."></textarea>
         </label>
         
         <label class="var-field">
-          <span class="var-field-label">정책/현재 상황 <code>{{context}}</code></span>
+          <span class="var-field-label">정책/현재 상황</span>
           <textarea data-var-input="context" rows="4" placeholder="정책, 처리 가능 범위, 기한 등 내부 기준을 적어주세요."></textarea>
         </label>
         </div>
       <div class="actions" style="margin-top:14px;">
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quick" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quick_filled" onclick="fillAndCopyPrompt(this)">1번 기본안 자동 채워 복사</button>
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quality" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quality_filled" onclick="fillAndCopyPrompt(this)">2번 정확도 점검 자동 채워 복사</button>
-        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-recovery" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="recovery_filled" onclick="fillAndCopyPrompt(this)">3번 다시쓰기 자동 채워 복사</button>
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quick" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quick_filled" onclick="fillAndCopyPrompt(this)">기본 버전 만들기</button>
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-quality" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="quality_filled" onclick="fillAndCopyPrompt(this)">더 꼼꼼한 버전 만들기</button>
+        <button class="copy-btn" type="button" data-fill-target="customer-support-reply-prompt-recovery" data-var-keys="customer_message,context" data-slug="customer-support-reply-prompt" data-copy-variant="recovery_filled" onclick="fillAndCopyPrompt(this)">말투 다듬은 버전 만들기</button>
       </div>
-      <p class="mini-note" style="margin-top:10px;">빈칸을 안 채운 항목은 원래 표시({{변수명}}) 그대로 남습니다.</p>
+      <p class="mini-note" style="margin-top:10px;">빈칸을 비워두면 해당 부분만 원래 표시({{변수명}})로 남습니다.</p>
     </section>
     
     
@@ -607,6 +554,63 @@ a:hover { text-decoration: underline; }
     </div>
         </section>
         
+
+    <section class="section" id="quickstart">
+      <div class="section-head"><div><h2>빠른 사용법</h2><p class="lead">아래 순서대로 하면 대부분 1분 안에 초안까지 뽑을 수 있습니다.</p></div></div>
+      <div class="grid grid-3">
+        <div class="card"><div class="kicker">Step 1</div><h3>지금 상황과 가까운 예시를 고릅니다</h3><p class="muted">먼저 기본안만 보지 말고, 아래 실전 예시 중 지금 상황과 가장 비슷한 템플릿부터 고르세요.</p></div>
+        <div class="card"><div class="kicker">Step 2</div><h3>빈칸만 채워 복사합니다</h3><p class="muted">입력칸만 채우면 <code>{{변수명}}</code> 자리에 실제 내용이 들어간 상태로 바로 복사됩니다.</p></div>
+        <div class="card"><div class="kicker">Step 3</div><h3>결과가 약하면 2번, 어색하면 3번</h3><p class="muted">첫 결과가 애매하면 정확도 점검, 말투가 어색하면 다시쓰기를 이어서 붙이면 됩니다.</p></div>
+      </div>
+    </section>
+
+
+    <section class="section" id="prompt-core">
+      <div class="section-head"><div><h2>원본 프롬프트 보기</h2><p class="lead">대부분은 위 입력칸만 쓰면 충분합니다. 아래는 직접 수정하거나 응용하고 싶은 사람을 위한 원본 프롬프트 영역입니다.</p></div></div>
+      <div class="grid grid-3" style="margin-bottom:16px;">
+        <div class="card"><div class="kicker">1번</div><h3>초안 뽑기</h3><p class="muted">일단 빨리 문장을 만들어야 할 때 씁니다. 첫 실행은 거의 이걸로 시작하면 됩니다.</p></div>
+        <div class="card"><div class="kicker">2번</div><h3>빠진 것 점검</h3><p class="muted">담당자, 마감일, 확인 필요 항목처럼 빠지면 곤란한 요소를 더 깔끔하게 정리할 때 붙입니다.</p></div>
+        <div class="card"><div class="kicker">3번</div><h3>사람 말처럼 다듬기</h3><p class="muted">AI 티가 나거나 문장이 너무 뻣뻣할 때, 말투와 흐름을 자연스럽게 다시 정리할 때 씁니다.</p></div>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="prompt-head">
+          <div>
+            <div class="kicker">복사 후 바로 실행</div>
+            <p class="muted" style="margin:0;">복사한 뒤 바로 붙여넣어 보세요. 첫 결과가 완벽할 필요는 없고, 2번/3번으로 바로 다듬으면 됩니다.</p>
+          </div>
+          <div class="actions"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="customer-support-reply-prompt">Claude 열기</a></div>
+        </div>
+      </div>
+      
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">1) 기본안 (먼저 실행)</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quick" data-slug="customer-support-reply-prompt" data-copy-variant="quick" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
+    </div>
+    
+      <div class="grid grid-2" style="margin-top:16px;">
+        
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">2) 정확도 점검</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-quality" data-slug="customer-support-reply-prompt" data-copy-variant="quality" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
+    </div>
+    
+        
+    <div class="card">
+      <div class="prompt-head">
+        <div class="kicker">3) 다시쓰기</div>
+        <button class="copy-btn" type="button" data-copy-target="customer-support-reply-prompt-recovery" data-slug="customer-support-reply-prompt" data-copy-variant="recovery" onclick="copyPrompt(this)">복사</button>
+      </div>
+      <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
+    </div>
+    
+      </div>
+    </section>
 
     <section class="section">
       <div class="split">
