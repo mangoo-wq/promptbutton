@@ -12,14 +12,14 @@ Problem: 회의록 정리 AI
 When to use: 회의 내용을 빠르게 정리할 때, 발언자별 핵심 내용이 필요할 때, 액션 아이템만 뽑고 싶을 때
 Core template: 아래 회의 내용을 읽고 팀 공유용 회의록 초안을 만들어줘. 형식은 bullet. 순서: 1) 회의 목적 2) 핵심 논의 3) 결정 사항 4) 담당자별 액션 아이템(담당자/마감일/완료조건) 5) 다음 일정. 회의 내용: {{meeting_text}}
 
-### 메일 답장 프롬프트 모음
+### 업무 메일 답장 프롬프트
 URL: https://promptbutton.app/prompt/email-reply-prompt
 Category: 업무/실무
 Problem: 메일 답장 예시
 When to use: 정중한 답장이 필요할 때, 상사/고객 메일 답장을 써야 할 때, 거절/보류 메일을 부드럽게 쓰고 싶을 때
 Core template: 아래 정보를 바탕으로 바로 보낼 수 있는 업무 메일 답장을 작성해줘. 구조: 1) 한 줄 공감/감사 2) 핵심 답변 3) 다음 액션 또는 일정 4) 마무리. 길이는 5~7문장. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}
 
-### 고객문의 답변 프롬프트
+### 고객응대 답변 프롬프트
 URL: https://promptbutton.app/prompt/customer-support-reply-prompt
 Category: 고객응대/쇼핑몰
 Problem: 고객문의 답변 예시
