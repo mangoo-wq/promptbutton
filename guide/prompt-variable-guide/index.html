@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="{{변수명}} 같은 프롬프트 빈칸이 무엇이고, 왜 재사용에 유리한지 실무 관점으로 설명한 가이드입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -444,11 +444,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="" data-page-type="guide_article" data-page-slug="prompt-variable-guide" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -460,30 +481,31 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <a href="/guide">작성법</a> / <span>프롬프트 변수(빈칸) 이해 가이드</span></div>
       <div class="section-head"><div><div class="kicker">정보형 가이드</div><h2>프롬프트 변수(빈칸) 이해 가이드</h2><p class="lead">{{변수명}} 같은 프롬프트 빈칸이 무엇이고, 왜 재사용에 유리한지 실무 관점으로 설명한 가이드입니다.</p></div></div>
     </section>
 
-    
+
         <section class="section">
           <div class="section-head"><div><h2>변수는 왜 필요할까</h2><p class="lead">프롬프트를 매번 처음부터 다시 쓰지 않기 위해 바뀌는 값만 따로 분리한 것이 변수입니다.</p></div></div>
           <ul class='list-clean'><li>고정 문장 재사용 가능</li><li>실수 줄이기</li><li>업무 속도 향상</li></ul>
         </section>
-        
+
         <section class="section">
           <div class="section-head"><div><h2>실무에서 자주 쓰는 변수 예시</h2><p class="lead">업무 커뮤니케이션 프롬프트에서는 상황, 상대, 핵심 메시지, 메모 원문처럼 바뀌는 값이 가장 자주 변수로 들어갑니다.</p></div></div>
           <ul class='list-clean'><li>{{meeting_text}} = 회의 메모</li><li>{{recipient}} = 상대</li><li>{{customer_message}} = 고객 문의 원문</li></ul>
         </section>
-        
+
         <section class="section">
           <div class="section-head"><div><h2>변수를 잘 쓰면 좋은 점</h2><p class="lead">같은 프롬프트를 재사용해도 작업 속도가 빨라지고, 팀 내에서 템플릿을 공유하기 쉬워집니다.</p></div></div>
           <ul class='list-clean'><li>템플릿화가 쉬움</li><li>신입/비전문가도 사용 가능</li><li>출력 품질 편차 감소</li></ul>
         </section>
-        
+
 
     <section class="section">
       <div class="section-head"><div><h2>바로 써볼 입력 페이지 1개</h2><p class="lead">글을 다 읽지 않아도 됩니다. 지금 상황에 맞는 페이지에서 내용을 넣고 복사하세요.</p></div></div>
@@ -505,7 +527,7 @@ a:hover { text-decoration: underline; }
 
     <div class="footer">프롬버튼 · 프롬프트 변수(빈칸) 이해 가이드</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -514,13 +536,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

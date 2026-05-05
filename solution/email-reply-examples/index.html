@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="메일 답장 예시를 찾는 사람은 보통 예의는 지키고 싶은데 문장이 잘 안 떠오릅니다. 이 페이지는 정중한 업무 메일을 빠르게 쓰는 프롬프트와 예시를 모았습니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -443,11 +443,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="" data-page-type="solution" data-page-slug="email-reply-examples" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -459,9 +480,10 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/work">업무/실무</a> / <span>메일 답장 예시</span></div>
       <div class="section-head"><div><div class="kicker">이런 문제를 해결할 때</div><h2>업무 메일 답장이 막힐 때 바로 쓰는 예시</h2><p class="lead">메일 답장 예시를 찾는 사람은 보통 예의는 지키고 싶은데 문장이 잘 안 떠오릅니다. 이 페이지는 정중한 업무 메일을 빠르게 쓰는 프롬프트와 예시를 모았습니다.</p></div></div>
@@ -473,7 +495,7 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>문장 미리보기</h2><p class="lead">실제로 AI에 붙여넣을 문장이 어떤 모양인지 확인하는 영역입니다. 바로 쓰려면 위 버튼으로 입력칸부터 여세요.</p></div></div>
-      
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">붙여넣을 문장 미리보기</div>
@@ -481,7 +503,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="preview-email-reply-prompt">아래 정보를 바탕으로 바로 보낼 수 있는 업무 메일 답장을 작성해줘. 구조: 1) 한 줄 공감/감사 2) 핵심 답변 3) 다음 액션 또는 일정 4) 마무리. 길이는 5~7문장. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
       <div class="hero-actions" style="margin-top:16px;">
         <a class="button primary" href="/prompt/email-reply-prompt#variable-fill">입력칸 열기</a>
       </div>
@@ -516,7 +538,7 @@ a:hover { text-decoration: underline; }
       <div class="pill-wrap"><span class="pill">메일 답장 예시</span></div>
       <p style="margin-top:14px;"><a href="/prompt/email-reply-prompt#variable-fill">내용 넣고 복사하기 →</a></p>
     </article>
-    
+
     <article class="card">
       <div class="kicker">다음 단계</div>
       <h3>실무 적용 체크리스트 보기</h3>
@@ -528,7 +550,7 @@ a:hover { text-decoration: underline; }
 
     <div class="footer">프롬버튼 · 메일 답장 예시</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -537,13 +559,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

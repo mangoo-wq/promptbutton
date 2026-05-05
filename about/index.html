@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="프롬버튼 소개와 운영 원칙 안내">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -443,11 +443,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="" data-page-type="about" data-page-slug="about" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -459,30 +480,31 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <span>프롬버튼 소개</span></div>
       <div class="section-head"><div><div class="kicker">운영 정보</div><h2>프롬버튼 소개</h2><p class="lead">프롬버튼이 어떤 문제를 해결하려는지, 어떤 원칙으로 콘텐츠를 운영하는지 정리했습니다.</p></div></div>
-      
+
     </section>
 
-    
+
         <section class="section">
           <div class="section-head"><div><h2>프롬버튼이 하는 일</h2><p class="lead">프롬버튼은 회의록, 메일 답장, 고객응대처럼 반복되는 실무 커뮤니케이션을 더 빠르게 끝낼 수 있도록 한국어 프롬프트 템플릿을 정리하는 서비스입니다.</p></div></div>
           <ul class='list-clean'><li>실무자가 바로 복붙할 수 있는 템플릿 중심</li><li>상황별 usecase 페이지와 정보형 가이드 함께 제공</li><li>AI 결과물은 실제 업무에 맞게 검토 후 사용 권장</li></ul>
         </section>
-        
+
         <section class="section">
           <div class="section-head"><div><h2>콘텐츠 원칙</h2><p class="lead">읽기 어렵거나 과장된 설명보다, 실제 업무 흐름에서 바로 쓸 수 있는 문장을 우선합니다.</p></div></div>
           <ul class='list-clean'><li>짧고 명확한 구조</li><li>재사용 가능한 변수(빈칸) 방식</li><li>실무 상황 중심의 예시와 FAQ 지속 보강</li></ul>
         </section>
-        
+
 
     <div class="footer">프롬버튼 · 프롬버튼 소개</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -491,13 +513,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

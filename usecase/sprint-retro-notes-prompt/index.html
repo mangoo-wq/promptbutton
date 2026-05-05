@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="회고 미팅에서 나온 의견을 실행 중심으로 구조화해 다음 스프린트 개선안으로 연결할 때 쓰는 프롬프트입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -447,11 +447,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="" data-page-type="usecase" data-page-slug="sprint-retro-notes-prompt" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -463,9 +484,10 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/work">업무/실무</a> / <span>스프린트 회고 정리 프롬프트</span></div>
       <div class="section-head"><div><div class="kicker">세부 상황</div><h2>스프린트 회고 정리 프롬프트</h2><p class="lead">회고 미팅에서 나온 의견을 실행 중심으로 구조화해 다음 스프린트 개선안으로 연결할 때 쓰는 프롬프트입니다.</p></div></div>
@@ -496,7 +518,7 @@ a:hover { text-decoration: underline; }
 
     <section class="section">
       <div class="section-head"><div><h2>문장만 직접 복사하고 싶다면</h2><p class="lead">입력 페이지로 가기 전에 원문을 보고 싶을 때만 확인하세요.</p></div></div>
-      
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">붙여넣을 문장 복사</div>
@@ -504,7 +526,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="usecase-sprint-retro-notes-prompt-core">아래 회의 내용을 읽고 팀 공유용 회의록 초안을 만들어줘. 형식은 bullet. 순서: 1) 회의 목적 2) 핵심 논의 3) 결정 사항 4) 담당자별 액션 아이템(담당자/마감일/완료조건) 5) 다음 일정. 회의 내용: {{meeting_text}}</div>
     </div>
-    
+
     </section>
 
     <section class="section" id="tool-guide">
@@ -516,7 +538,7 @@ a:hover { text-decoration: underline; }
       <p class="muted">긴 회의 메모에서 담당자와 마감일 중심 액션아이템만 빠르게 뽑을 때 쓰는 실무 템플릿입니다.</p>
       <p style="margin-top:12px;"><a href="/usecase/meeting-action-items-prompt">바로 보기 →</a></p>
     </article>
-    
+
     <article class="card">
       <div class="kicker">세부 상황</div>
       <h3>회의 내용을 5줄 요약하는 프롬프트</h3>
@@ -531,16 +553,16 @@ a:hover { text-decoration: underline; }
       <ul class="list-clean"><li><strong>정성 의견이 많아도 정리되나요?</strong><br><span class='muted'>가능합니다. 유사 의견을 묶어 핵심 개선 포인트로 압축할 수 있습니다.</span></li><li><strong>팀별로 분리해서 보고할 수 있나요?</strong><br><span class='muted'>팀별 섹션으로 나눠달라고 지정하면 분리 리포트 형태로 출력됩니다.</span></li><li><strong>마감일이 없는 개선안은요?</strong><br><span class='muted'>[기한 설정 필요]로 표시하도록 지시해 누락을 막을 수 있습니다.</span></li><li><strong>KPT 형식으로도 정리할 수 있나요?</strong><br><span class='muted'>가능합니다. Keep/Problem/Try 또는 Keep/Stop/Start 형태를 지정하면 회고 체계에 맞춰 재구성됩니다.</span></li><li><strong>민감한 표현을 순화해서 팀 공유용으로 바꿀 수 있나요?</strong><br><span class='muted'>네. 비난성 표현을 중립적 개선 문장으로 바꾸라고 요청하면 공유용 문서에 더 적합해집니다.</span></li></ul>
     </section>
 
-    
+
     <section class="section" id="feedback">
       <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
       <div class="feedback-actions"><a class="feedback-link primary" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=sprint-retro-notes-prompt&amp;fb=helpful" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="helpful" data-slug="sprint-retro-notes-prompt">👍 도움됐어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=sprint-retro-notes-prompt&amp;fb=confusing" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="confusing" data-slug="sprint-retro-notes-prompt">🤔 애매했어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=sprint-retro-notes-prompt&amp;fb=need_template" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="need_template" data-slug="sprint-retro-notes-prompt">🧩 필요한 템플릿 있어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=sprint-retro-notes-prompt&amp;fb=free_text" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="free_text" data-slug="sprint-retro-notes-prompt">✍️ 자유 의견 남기기</a></div>
     </section>
-    
+
 
     <div class="footer">프롬버튼 · 스프린트 회고 정리 프롬프트</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -549,13 +571,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

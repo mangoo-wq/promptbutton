@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="답장을 빨리 보내야 하는데 예의는 지키고 싶을 때 쓰는 업무 메일 프롬프트입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -447,11 +447,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="has-mobile-copy" data-page-type="prompt" data-page-slug="email-reply-prompt" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -463,9 +484,10 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/work">업무/실무</a> / <span>메일 답장 프롬프트 모음</span></div>
       <div class="section-head"><div><div class="kicker">업무/실무</div><h2>메일 답장 프롬프트 모음</h2><p class="lead">정중한 업무 메일을 빠르게 쓰는 템플릿</p></div></div>
@@ -477,7 +499,7 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
-    
+
     <section class="section action-panel" id="variable-fill">
       <div class="section-head"><div><div class="kicker">여기부터 하세요</div><h2>무엇을 넣어야 할지 먼저 보여드릴게요</h2><p class="lead">아래 칸에는 완성된 글이 아니라 재료를 넣으면 됩니다. 메모, 고객이 보낸 말, 전달하고 싶은 내용을 그대로 붙여넣으세요.</p></div></div>
       <div class="input-guide" aria-label="입력 방법 안내">
@@ -491,13 +513,13 @@ a:hover { text-decoration: underline; }
           <span class="var-field-help">누가, 왜, 어떤 상황인지 한두 줄이면 충분합니다.</span>
           <textarea data-var-input="situation" rows="4" placeholder="예: 납기가 하루 늦어져서 거래처에 양해 메일을 보내야 함 / 고객이 환불 가능 여부를 물어봄"></textarea>
         </label>
-        
+
         <label class="var-field">
           <span class="var-field-label">받는 사람을 적으세요</span>
           <span class="var-field-help">말투를 맞추는 데 씁니다. 모르겠으면 &#x27;고객&#x27;처럼 대충 적어도 됩니다.</span>
           <textarea data-var-input="recipient" rows="2" placeholder="예: 고객 / 팀장님 / 거래처 담당자 / 면접관"></textarea>
         </label>
-        
+
         <label class="var-field">
           <span class="var-field-label">꼭 전하고 싶은 내용을 적으세요</span>
           <span class="var-field-help">문장으로 예쁘게 쓰지 않아도 됩니다. 핵심만 적으세요.</span>
@@ -511,9 +533,9 @@ a:hover { text-decoration: underline; }
       </div>
       <p class="mini-note" style="margin-top:10px;">비워둔 칸은 나중에 직접 바꿔 넣을 수 있게 표시가 남습니다. 잘 모르겠으면 첫 번째 버튼만 눌러도 됩니다.</p>
     </section>
-    
 
-    
+
+
         <section class="section" id="quick-examples">
           <div class="section-head"><div><h2>실제 예시 6개</h2><p class="lead">뭘 넣어야 할지 감이 안 오면 예시를 먼저 보세요. 내 상황과 비슷한 문장을 골라 바꿔 써도 됩니다.</p></div></div>
           <div class="grid grid-2">
@@ -527,7 +549,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-scenario-1">아래 상황을 바탕으로 일정 변경 회신 메일을 작성해줘. 구조: 1) 요청 확인 2) 변경 가능 일정 3) 확인 요청 4) 마무리. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 2. 거절/보류 메일</div>
@@ -538,7 +560,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-scenario-2">아래 상황을 바탕으로 관계를 해치지 않는 거절 또는 보류 메일을 작성해줘. 공감 문장 1줄, 거절/보류 사유, 가능한 대안, 다음 확인 시점을 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 3. 팔로업 메일</div>
@@ -549,7 +571,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-scenario-3">아래 상황을 바탕으로 재촉처럼 보이지 않는 팔로업 메일을 작성해줘. 기존 요청 맥락을 한 줄로 요약하고, 회신 희망 시점 1개를 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 4. 자료 전달 메일</div>
@@ -560,7 +582,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-scenario-4">아래 정보를 바탕으로 자료 전달 메일을 작성해줘. 첨부 자료 요약, 확인 포인트, 회신 요청 여부를 포함해줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 5. 회의 요청 회신</div>
@@ -571,7 +593,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-scenario-5">아래 상황을 바탕으로 미팅 요청 회신 메일을 작성해줘. 가능 시간, 참석 목적, 준비사항을 간단히 넣어줘. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 6. 지연 안내 메일</div>
@@ -584,7 +606,7 @@ a:hover { text-decoration: underline; }
     </div>
     </div>
         </section>
-        
+
 
     <section class="section" id="tool-guide">
       <div class="section-head"><div><h2>복사했다면 AI에 붙여넣으세요</h2><p class="lead">편한 AI를 열고, 방금 복사한 문장을 그대로 넣으면 됩니다.</p></div></div>
@@ -597,7 +619,7 @@ a:hover { text-decoration: underline; }
               <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>딱딱한 톤으로 나올 때가 있어 조건을 더 줘야 함</li></ul></div>
               <p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="email-reply-prompt">ChatGPT 열기</a></p>
             </div>
-            
+
             <div class='card'>
               <div class='kicker'>추천 도구</div>
               <h3>Claude</h3>
@@ -626,7 +648,7 @@ a:hover { text-decoration: underline; }
           <div class="actions"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="email-reply-prompt">ChatGPT 열기</a><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=email-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="email-reply-prompt">Claude 열기</a></div>
         </div>
       </div>
-      
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">1) 기본안 (먼저 실행)</div>
@@ -634,9 +656,9 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-quick">아래 정보를 바탕으로 바로 보낼 수 있는 업무 메일 답장을 작성해줘. 구조: 1) 한 줄 공감/감사 2) 핵심 답변 3) 다음 액션 또는 일정 4) 마무리. 길이는 5~7문장. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
       <div class="grid grid-2" style="margin-top:16px;">
-        
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">2) 정확도 점검</div>
@@ -644,8 +666,8 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-quality">아래 상황에 맞는 메일 답장을 품질검수 모드로 작성해줘. 규칙: 모호한 표현 금지, 책임 주체 명시, 일정은 날짜/시간으로, 상대가 바로 회신할 수 있는 질문 1개 포함. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
-        
+
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">3) 다시쓰기</div>
@@ -653,7 +675,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="email-reply-prompt-recovery">방금 만든 답장이 어색했어. 같은 내용을 더 자연스럽게 다시 써줘. 조건: 1) 지나치게 딱딱한 표현 제거 2) 장황한 문장 축약 3) 거절/보류 상황이면 대안 제시 4) 최종본 + 한 줄 초간단 버전 함께 출력. 상황: {{situation}} 상대: {{recipient}} 핵심 메시지: {{message}}</div>
     </div>
-    
+
       </div>
     </section>
 
@@ -688,7 +710,7 @@ a:hover { text-decoration: underline; }
       <p class="muted">요청을 거절하거나 보류할 때 관계를 해치지 않는 톤으로 메일을 빠르게 작성하는 템플릿입니다.</p>
       <p style="margin-top:12px;"><a href="/usecase/polite-rejection-email-prompt">바로 보기 →</a></p>
     </article>
-    
+
     <article class="card">
       <div class="kicker">세부 상황</div>
       <h3>일정 변경 안내 메일 프롬프트</h3>
@@ -710,12 +732,12 @@ a:hover { text-decoration: underline; }
     </div>
     </section>
 
-    
+
     <section class="section" id="feedback">
       <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
       <div class="feedback-actions"><a class="feedback-link primary" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=email-reply-prompt&amp;fb=helpful" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="helpful" data-slug="email-reply-prompt">👍 도움됐어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=email-reply-prompt&amp;fb=confusing" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="confusing" data-slug="email-reply-prompt">🤔 애매했어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=email-reply-prompt&amp;fb=need_template" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="need_template" data-slug="email-reply-prompt">🧩 필요한 템플릿 있어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=email-reply-prompt&amp;fb=free_text" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="free_text" data-slug="email-reply-prompt">✍️ 자유 의견 남기기</a></div>
     </section>
-    
+
 
     <section class="section">
       <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
@@ -732,7 +754,7 @@ a:hover { text-decoration: underline; }
       <div class="pill-wrap"><span class="pill">회의록 정리 AI</span></div>
       <p style="margin-top:14px;"><a href="/prompt/meeting-minutes-prompt#variable-fill">내용 넣고 복사하기 →</a></p>
     </article>
-    
+
     <article class="card">
       <div class="kicker">고객응대/쇼핑몰</div>
       <h3><a href="/prompt/customer-support-reply-prompt#variable-fill">고객문의 답변 프롬프트</a></h3>
@@ -749,7 +771,7 @@ a:hover { text-decoration: underline; }
 
     <div class="footer">프롬버튼 · 메일 답장 프롬프트 모음</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -758,13 +780,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

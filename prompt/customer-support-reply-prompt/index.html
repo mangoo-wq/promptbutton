@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="고객 문의에 답변할 때 말투를 부드럽게 유지하면서도 필요한 정보를 정확히 전달하고 싶을 때 쓰는 프롬프트입니다.">
   <meta name="twitter:image" content="https://promptbutton.app/assets/og.png">
   <meta name="twitter:image:alt" content="프롬버튼: 처음이면 이 3개만 보세요. 고르고, 넣고, 복사하면 됩니다.">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9YF1X1KTM"></script>
   <script>
@@ -447,11 +447,32 @@ a:hover { text-decoration: underline; }
     color: #fff;
   }
 }
+
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.calc-form { display: grid; gap: 14px; }
+.calc-field { display: grid; gap: 7px; }
+.calc-field label { font-weight: 800; letter-spacing: -0.02em; }
+.calc-field input, .calc-field select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px;
+  font: inherit; color: var(--text); background: #fff;
+}
+.calc-field small { color: var(--muted); }
+.calc-result {
+  border: 1px solid rgba(79,70,229,0.18); border-radius: 20px; padding: 18px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.10), rgba(124,58,237,0.08));
+}
+.calc-result strong { display: block; font-size: clamp(24px, 4vw, 38px); letter-spacing: -0.04em; margin-top: 4px; }
+.calc-breakdown { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.calc-breakdown li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(95,107,132,0.15); padding-top: 8px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-source-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.calc-source-list li { margin: 6px 0; }
+
 </style>
 </head>
 <body class="has-mobile-copy" data-page-type="prompt" data-page-slug="customer-support-reply-prompt" data-counter-api="https://api.counterapi.dev/v1" data-counter-namespace="promptbutton-prod-v1">
   <div class="wrap">
-    
+
     <header class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">P</span>
@@ -463,9 +484,10 @@ a:hover { text-decoration: underline; }
       <nav class="nav">
         <a href="/category/work">업무/실무</a><a href="/category/cs">고객응대/쇼핑몰</a>
         <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
       </nav>
     </header>
-    
+
     <section class="section">
       <div class="breadcrumbs"><a href="/">홈</a> / <a href="/category/cs">고객응대/쇼핑몰</a> / <span>고객문의 답변 프롬프트</span></div>
       <div class="section-head"><div><div class="kicker">고객응대/쇼핑몰</div><h2>고객문의 답변 프롬프트</h2><p class="lead">CS 답변을 빠르고 부드럽게 쓰는 템플릿</p></div></div>
@@ -477,7 +499,7 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
-    
+
     <section class="section action-panel" id="variable-fill">
       <div class="section-head"><div><div class="kicker">여기부터 하세요</div><h2>무엇을 넣어야 할지 먼저 보여드릴게요</h2><p class="lead">아래 칸에는 완성된 글이 아니라 재료를 넣으면 됩니다. 메모, 고객이 보낸 말, 전달하고 싶은 내용을 그대로 붙여넣으세요.</p></div></div>
       <div class="input-guide" aria-label="입력 방법 안내">
@@ -491,7 +513,7 @@ a:hover { text-decoration: underline; }
           <span class="var-field-help">오타나 화난 말투가 있어도 그대로 넣으세요.</span>
           <textarea data-var-input="customer_message" rows="6" placeholder="예: 배송이 왜 아직도 안 왔나요? 지난주에 주문했는데 너무 늦습니다. 환불 가능한가요?"></textarea>
         </label>
-        
+
         <label class="var-field">
           <span class="var-field-label">우리 쪽 기준이나 처리 상황을 적으세요</span>
           <span class="var-field-help">정책, 가능한 보상, 기한처럼 답변에 꼭 들어가야 할 내용을 넣으세요.</span>
@@ -505,9 +527,9 @@ a:hover { text-decoration: underline; }
       </div>
       <p class="mini-note" style="margin-top:10px;">비워둔 칸은 나중에 직접 바꿔 넣을 수 있게 표시가 남습니다. 잘 모르겠으면 첫 번째 버튼만 눌러도 됩니다.</p>
     </section>
-    
 
-    
+
+
         <section class="section" id="quick-examples">
           <div class="section-head"><div><h2>실제 예시 6개</h2><p class="lead">뭘 넣어야 할지 감이 안 오면 예시를 먼저 보세요. 내 상황과 비슷한 문장을 골라 바꿔 써도 됩니다.</p></div></div>
           <div class="grid grid-2">
@@ -521,7 +543,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-scenario-1">아래 배송 지연 문의에 대한 답변을 작성해줘. 현재 배송 상태, 예상 일정, 고객이 지금 할 수 있는 선택지를 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 2. 환불 요청 응대</div>
@@ -532,7 +554,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-scenario-2">아래 환불 요청 문의에 대한 답변을 작성해줘. 공감 문장, 환불 가능 여부, 정책 기준, 가능한 대안을 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 3. 교환 접수 안내</div>
@@ -543,7 +565,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-scenario-3">아래 교환 문의에 대한 답변을 작성해줘. 교환 절차, 회수/재발송 일정, 고객 준비사항을 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 4. 불만 고객 진정 응대</div>
@@ -554,7 +576,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-scenario-4">아래 감정적인 고객 문의에 대한 답변을 작성해줘. 공감/사과, 확인된 사실, 즉시 가능한 조치, 후속 안내 시점을 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 5. 품절/재입고 문의</div>
@@ -565,7 +587,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-scenario-5">아래 품절 또는 재입고 문의에 대한 답변을 작성해줘. 현재 재고 상태, 예상 일정, 대체 가능한 선택지를 포함해줘. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
     <div class="card quick-example">
       <div class="prompt-head">
         <div class="prompt-title">예시 6. 불량 상품 접수</div>
@@ -578,7 +600,7 @@ a:hover { text-decoration: underline; }
     </div>
     </div>
         </section>
-        
+
 
     <section class="section" id="tool-guide">
       <div class="section-head"><div><h2>복사했다면 AI에 붙여넣으세요</h2><p class="lead">편한 AI를 열고, 방금 복사한 문장을 그대로 넣으면 됩니다.</p></div></div>
@@ -591,7 +613,7 @@ a:hover { text-decoration: underline; }
               <div class='row' style='margin-top:12px;'><div class='row-title'>주의할 점</div><ul class='list-clean'><li>감정적인 문의는 톤 조절을 더 넣는 게 좋음</li></ul></div>
               <p style="margin-top:12px;"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a></p>
             </div>
-            
+
             <div class='card'>
               <div class='kicker'>추천 도구</div>
               <h3>Claude</h3>
@@ -620,7 +642,7 @@ a:hover { text-decoration: underline; }
           <div class="actions"><a class="tool-link" href="https://chat.openai.com/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="ChatGPT" data-slug="customer-support-reply-prompt">ChatGPT 열기</a><a class="tool-link" href="https://claude.ai/?utm_source=promptbutton&amp;utm_medium=tool_click&amp;utm_campaign=customer-support-reply-prompt" target="_blank" rel="noopener noreferrer" data-track="tool-outbound" data-tool="Claude" data-slug="customer-support-reply-prompt">Claude 열기</a></div>
         </div>
       </div>
-      
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">1) 기본안 (먼저 실행)</div>
@@ -628,9 +650,9 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-quick">아래 고객 문의에 대한 실제 발송용 답변을 작성해줘. 톤은 친절하고 차분하게, 책임 회피처럼 보이지 않게. 구조: 1) 공감/사과(필요시) 2) 현재 확인된 사실 3) 고객이 지금 할 일 4) 우리가 후속으로 할 일 5) 재문의 방법. 고객 문의: {{customer_message}} 정책/상황: {{context}}</div>
     </div>
-    
+
       <div class="grid grid-2" style="margin-top:16px;">
-        
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">2) 정확도 점검</div>
@@ -638,8 +660,8 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-quality">아래 고객 문의 답변을 분쟁예방 모드로 작성해줘. 규칙: 추측 금지, 정책 문구는 명확하게, 날짜/기한 표시, 오해 소지 표현 제거. 마지막에 내부 검수 체크포인트 2개를 괄호로 추가. 문의: {{customer_message}} 상황: {{context}}</div>
     </div>
-    
-        
+
+
     <div class="card">
       <div class="prompt-head">
         <div class="kicker">3) 다시쓰기</div>
@@ -647,7 +669,7 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="prompt-box" id="customer-support-reply-prompt-recovery">직전 답변이 차갑게 느껴졌어. 같은 내용을 다시 작성해줘. 조건: 1) 공감 문장 1줄 추가 2) 핵심 안내는 3줄 이내 3) 고객 행동 유도 문장 포함 4) 필요시 사과 + 보상/대안 안내. 문의: {{customer_message}} 상황: {{context}}</div>
     </div>
-    
+
       </div>
     </section>
 
@@ -682,7 +704,7 @@ a:hover { text-decoration: underline; }
       <p class="muted">감정이 격한 고객 문의에도 상황을 악화시키지 않고 문제 해결로 연결하는 답변 템플릿입니다.</p>
       <p style="margin-top:12px;"><a href="/usecase/angry-customer-reply-prompt">바로 보기 →</a></p>
     </article>
-    
+
     <article class="card">
       <div class="kicker">세부 상황</div>
       <h3>환불 문의 답변 프롬프트</h3>
@@ -704,12 +726,12 @@ a:hover { text-decoration: underline; }
     </div>
     </section>
 
-    
+
     <section class="section" id="feedback">
       <div class="section-head"><div><h2>한 줄 피드백</h2><p class="lead">실사용 의견이 쌓이면 템플릿 품질이 훨씬 빨리 좋아집니다. 10초만 투자해서 알려주세요.</p></div></div>
       <div class="feedback-actions"><a class="feedback-link primary" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=helpful" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="helpful" data-slug="customer-support-reply-prompt">👍 도움됐어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=confusing" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="confusing" data-slug="customer-support-reply-prompt">🤔 애매했어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=need_template" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="need_template" data-slug="customer-support-reply-prompt">🧩 필요한 템플릿 있어요</a><a class="feedback-link" href="https://forms.gle/yYGN2n3sdeb3tM4S8?usp=pp_url&amp;utm_source=promptbutton&amp;utm_medium=feedback&amp;utm_campaign=customer-support-reply-prompt&amp;fb=free_text" target="_blank" rel="noopener noreferrer" data-track="feedback-outbound" data-feedback-type="free_text" data-slug="customer-support-reply-prompt">✍️ 자유 의견 남기기</a></div>
     </section>
-    
+
 
     <section class="section">
       <div class="section-head"><div><h2>자주 묻는 질문</h2><p class="lead">이 페이지에 실제로 같이 따라붙는 고민들을 정리했습니다.</p></div></div>
@@ -727,7 +749,7 @@ a:hover { text-decoration: underline; }
 
     <div class="footer">프롬버튼 · 고객문의 답변 프롬프트</div>
     </div>
-  
+
     <footer class="site-footer">
       <div class="site-footer-box">
         <div class="site-footer-links">
@@ -736,13 +758,14 @@ a:hover { text-decoration: underline; }
           <a href="/privacy">개인정보처리방침</a>
           <a href="/terms">이용안내</a>
           <a href="/guide">작성법</a>
+        <a href="/calc">생활 계산기</a>
         </div>
         <div class="site-footer-copy">프롬버튼는 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있게 만든 한국어 프롬프트 버튼 사이트입니다. AI가 만든 결과는 보내기 전에 한 번만 직접 확인해 주세요.</div>
       </div>
     </footer>
-    
-  
-  
+
+
+
 <script>
 (function () {
   function pushLocalEvent(payload) {

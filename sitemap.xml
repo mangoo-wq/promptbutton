@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://promptbutton.app</loc></url>
+<url><loc>https://promptbutton.app/calc</loc></url>
+<url><loc>https://promptbutton.app/calc/juhyu</loc></url>
+<url><loc>https://promptbutton.app/calc/salary</loc></url>
+<url><loc>https://promptbutton.app/calc/retirement-pay</loc></url>
+<url><loc>https://promptbutton.app/calc/brokerage-fee</loc></url>
+<url><loc>https://promptbutton.app/calc/smartstore-margin</loc></url>
 <url><loc>https://promptbutton.app/category/work</loc></url>
 <url><loc>https://promptbutton.app/category/cs</loc></url>
 <url><loc>https://promptbutton.app/prompt/meeting-minutes-prompt</loc></url>
