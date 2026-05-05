@@ -1,17 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="550" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4F46E5"/>
+    <linearGradient id="bg" x1="80" y1="50" x2="1110" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="0.55" stop-color="#4F46E5"/>
       <stop offset="1" stop-color="#7C3AED"/>
     </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#172554" flood-opacity="0.22"/>
+    </filter>
   </defs>
   <rect width="1200" height="630" rx="40" fill="#F5F7FF"/>
   <rect x="52" y="52" width="1096" height="526" rx="36" fill="url(#bg)"/>
-  <rect x="106" y="118" width="86" height="86" rx="24" fill="rgba(255,255,255,0.18)"/>
-  <path d="M136 134H155.8C169.5 134 177 141.5 177 153.8C177 166.4 169.1 173.6 155.5 173.6H144.6V190H136V134ZM154.5 165.7C163.6 165.7 168.3 161.5 168.3 153.8C168.3 146.2 163.6 142 154.5 142H144.6V165.7H154.5Z" fill="white"/>
-  <text x="106" y="286" fill="white" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">일할 때 막히면, 프롬버튼.</text>
-  <text x="106" y="364" fill="rgba(255,255,255,0.92)" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">회의록, 메일 답장, 자소서, 고객응대까지.</text>
-  <text x="106" y="414" fill="rgba(255,255,255,0.92)" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">바로 복붙해 쓰는 AI 프롬프트 예시와 템플릿.</text>
-  <rect x="106" y="470" width="318" height="62" rx="18" fill="rgba(255,255,255,0.16)"/>
-  <text x="138" y="511" fill="white" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">promptbutton</text>
+  <g filter="url(#shadow)">
+    <rect x="92" y="96" width="1016" height="438" rx="32" fill="rgba(255,255,255,0.13)"/>
+  </g>
+  <rect x="122" y="126" width="78" height="78" rx="22" fill="rgba(255,255,255,0.2)"/>
+  <path d="M149 142H166.8C180.5 142 188 149.2 188 161.4C188 173.9 180.1 181 166.5 181H157.5V196H149V142ZM165.8 173.2C174.4 173.2 179.1 169.2 179.1 161.4C179.1 153.9 174.4 149.8 165.8 149.8H157.5V173.2H165.8Z" fill="white"/>
+  <text x="220" y="176" fill="rgba(255,255,255,0.86)" font-family="Noto Sans CJK KR, Noto Sans KR, Inter, Arial, sans-serif" font-size="30" font-weight="700">프롬버튼</text>
+  <text x="122" y="278" fill="white" font-family="Noto Sans CJK KR, Noto Sans KR, Inter, Arial, sans-serif" font-size="68" font-weight="900">처음이면 이 3개만 보세요.</text>
+  <text x="122" y="354" fill="rgba(255,255,255,0.92)" font-family="Noto Sans CJK KR, Noto Sans KR, Inter, Arial, sans-serif" font-size="34" font-weight="500">업무 고르고 · 내용 넣고 · 복사해서 AI에 붙여넣기</text>
+  <g font-family="Noto Sans CJK KR, Noto Sans KR, Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="white">
+    <rect x="122" y="416" width="242" height="66" rx="18" fill="rgba(255,255,255,0.16)"/>
+    <text x="153" y="458">1. 업무 고르기</text>
+    <rect x="386" y="416" width="228" height="66" rx="18" fill="rgba(255,255,255,0.16)"/>
+    <text x="417" y="458">2. 내용 넣기</text>
+    <rect x="636" y="416" width="286" height="66" rx="18" fill="rgba(255,255,255,0.16)"/>
+    <text x="667" y="458">3. 복사해서 쓰기</text>
+  </g>
+  <text x="122" y="545" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">promptbutton.app</text>
 </svg>

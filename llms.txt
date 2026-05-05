@@ -1,5 +1,5 @@
 # 프롬버튼
-> 프롬버튼은 실무자/사장님이 바로 복붙해 쓰는 한국어 업무 프롬프트 라이브러리입니다.
+> 프롬버튼은 AI를 잘 몰라도 업무를 고르고, 내용을 넣고, 복사해서 쓸 수 있는 한국어 프롬프트 버튼 사이트입니다.
 
 ## Core Pages
 - 홈: https://promptbutton.app
@@ -16,8 +16,8 @@
 
 ## Prompt Pages
 - 회의록 프롬프트 예시 7개: https://promptbutton.app/prompt/meeting-minutes-prompt
-- 업무 메일 답장 프롬프트: https://promptbutton.app/prompt/email-reply-prompt
-- 고객응대 답변 프롬프트: https://promptbutton.app/prompt/customer-support-reply-prompt
+- 메일 답장 프롬프트 모음: https://promptbutton.app/prompt/email-reply-prompt
+- 고객문의 답변 프롬프트: https://promptbutton.app/prompt/customer-support-reply-prompt
 
 ## Solution Pages
 - 회의록 정리 AI: https://promptbutton.app/solution/meeting-minutes-ai
@@ -37,12 +37,6 @@
 - 환불 문의 답변 프롬프트: https://promptbutton.app/usecase/refund-policy-reply-prompt
 - 배송 지연 안내 답변 프롬프트: https://promptbutton.app/usecase/shipping-delay-reply-prompt
 - 교환 요청 답변 프롬프트: https://promptbutton.app/usecase/exchange-request-reply-prompt
-- 1:1 미팅 정리 프롬프트: https://promptbutton.app/usecase/one-on-one-meeting-notes-prompt
-- 프로젝트 킥오프 회의록 프롬프트: https://promptbutton.app/usecase/kickoff-meeting-notes-prompt
-- 회의 결정사항 정리 프롬프트: https://promptbutton.app/usecase/meeting-decision-log-prompt
-- 미팅 일정 재조정 메일 프롬프트: https://promptbutton.app/usecase/reschedule-meeting-reply-prompt
-- 거래처 회신 재촉 없는 팔로업 메일: https://promptbutton.app/usecase/vendor-followup-email-prompt
-- 품절·재입고 문의 답변 프롬프트: https://promptbutton.app/usecase/out-of-stock-reply-prompt
 
 ## Guide Articles
 - 회의록 빨리 정리하는 실무 가이드: https://promptbutton.app/guide/meeting-minutes-best-practices
