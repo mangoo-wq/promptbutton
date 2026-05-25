@@ -557,6 +557,7 @@ a:hover { text-decoration: underline; }
       copy_click: "pb_copy_click",
       tool_outbound_click: "pb_tool_outbound_click",
       feedback_click: "pb_feedback_click",
+      calc_calculate: "pb_calc_calculate",
     };
 
     return map[name] || ("pb_" + sanitizeToken(name, "event"));
@@ -586,7 +587,7 @@ a:hover { text-decoration: underline; }
   }
 
   function hitTrackedCounters(eventName, detail) {
-    if (["page_view", "copy_click", "tool_outbound_click", "feedback_click"].indexOf(eventName) === -1) {
+    if (["page_view", "copy_click", "tool_outbound_click", "feedback_click", "calc_calculate"].indexOf(eventName) === -1) {
       return;
     }
 
